@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 /* ───────────────── ICON COMPONENTS ───────────────── */
 
@@ -114,10 +115,8 @@ interface ToolCardProps {
 
 function ToolCard({ icon, title, description, badge, href, delay = 0 }: ToolCardProps) {
   return (
-    <a
+    <Link
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
       className="group block rounded-2xl border border-[#C8A84E]/20 bg-[#142E22]/80 backdrop-blur-sm p-5 transition-all duration-300 hover:border-[#C8A84E]/50 hover:bg-[#1B3C2D] hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(200,168,78,0.1)]"
       style={{ animationDelay: `${delay}ms` }}
     >
@@ -136,7 +135,7 @@ function ToolCard({ icon, title, description, badge, href, delay = 0 }: ToolCard
         </div>
         <ChevronIcon className="w-5 h-5 text-white/20 shrink-0 mt-1 transition-all group-hover:text-[#C8A84E] group-hover:translate-x-1" />
       </div>
-    </a>
+    </Link>
   );
 }
 
@@ -315,7 +314,7 @@ export default function Home() {
               title="Сканер суперсилы"
               description="Узнай свою уникальность как эксперта. AI проанализирует твой опыт и выдаст позиционирование"
               badge="AI"
-              href={TG_LINK + "?text=%D0%A1%D0%BA%D0%B0%D0%BD%D0%B5%D1%80"}
+              href="/scanner"
               delay={0}
             />
             <ToolCard
@@ -323,7 +322,7 @@ export default function Home() {
               title="Аудит оффера"
               description="Вставь свой оффер — получи оценку по 5 критериям и 3 улучшенных варианта"
               badge="AI"
-              href={TG_LINK + "?text=%D0%90%D1%83%D0%B4%D0%B8%D1%82+%D0%BE%D1%84%D1%84%D0%B5%D1%80%D0%B0"}
+              href="/audit"
               delay={100}
             />
             <ToolCard
@@ -331,7 +330,7 @@ export default function Home() {
               title="Калькулятор запуска"
               description="Рассчитай прогноз выручки первого запуска за 60 секунд"
               badge="NEW"
-              href={TG_LINK + "?text=%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80"}
+              href="/calculator"
               delay={200}
             />
             <ToolCard
@@ -339,7 +338,7 @@ export default function Home() {
               title="Диагностика эксперта"
               description="20 вопросов — и ты узнаешь, что именно мешает тебе зарабатывать. 4 типа проблем"
               badge="ТЕСТ"
-              href={TG_LINK + "?text=%D0%94%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0"}
+              href="/diagnostic"
               delay={300}
             />
             <ToolCard
@@ -347,7 +346,7 @@ export default function Home() {
               title="Контент-план на 30 дней"
               description="Получи готовый план постов с заголовками, тезисами и CTA по твоей нише"
               badge="AI"
-              href={TG_LINK + "?text=%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D1%82+%D0%BF%D0%BB%D0%B0%D0%BD"}
+              href="/content-plan"
               delay={400}
             />
           </div>
