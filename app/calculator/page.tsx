@@ -193,7 +193,7 @@ export default function CalculatorPage() {
               value={audienceInput}
               onChange={handleAudienceInput}
               onBlur={handleAudienceBlur}
-              className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-2.5 text-center text-lg font-bold text-[#C8A84E] outline-none transition focus:border-[#C8A84E]/50 focus:ring-1 focus:ring-[#C8A84E]/30"
+              className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-2.5 text-center text-lg font-bold text-[#C8A55A] outline-none transition focus:border-[#C8A55A]/50 focus:ring-1 focus:ring-[#C8A55A]/30"
             />
           </div>
 
@@ -208,7 +208,7 @@ export default function CalculatorPage() {
               onChange={handleAudienceSlider}
               className="w-full h-2 appearance-none rounded-full outline-none cursor-pointer"
               style={{
-                background: `linear-gradient(to right, #C8A84E 0%, #C8A84E ${sliderPercent}%, rgba(255,255,255,0.1) ${sliderPercent}%, rgba(255,255,255,0.1) 100%)`,
+                background: `linear-gradient(to right, #C8A55A 0%, #C8A55A ${sliderPercent}%, rgba(255,255,255,0.1) ${sliderPercent}%, rgba(255,255,255,0.1) 100%)`,
                 WebkitAppearance: "none",
               }}
             />
@@ -236,8 +236,8 @@ export default function CalculatorPage() {
                 onClick={() => handlePresetPrice(p)}
                 className={`rounded-xl px-3 py-2 text-sm font-semibold transition-all duration-200 ${
                   price === p && !isCustomPrice
-                    ? "bg-[#C8A84E] text-[#142E22] shadow-lg shadow-[#C8A84E]/20"
-                    : "border border-white/10 bg-white/[0.05] text-white/70 hover:border-[#C8A84E]/40 hover:text-white"
+                    ? "bg-[#C8A55A] text-[#141414] shadow-lg shadow-[#C8A55A]/20"
+                    : "border border-white/10 bg-white/[0.05] text-white/70 hover:border-[#C8A55A]/40 hover:text-white"
                 }`}
               >
                 {fmt(p)}&nbsp;₽
@@ -254,9 +254,9 @@ export default function CalculatorPage() {
               onChange={handleCustomPriceChange}
               className={`w-full rounded-xl border px-4 py-2.5 text-sm font-semibold outline-none transition ${
                 isCustomPrice
-                  ? "border-[#C8A84E]/50 bg-[#C8A84E]/10 text-[#C8A84E] ring-1 ring-[#C8A84E]/30"
+                  ? "border-[#C8A55A]/50 bg-[#C8A55A]/10 text-[#C8A55A] ring-1 ring-[#C8A55A]/30"
                   : "border-white/10 bg-white/[0.05] text-white/50 placeholder:text-white/25"
-              } focus:border-[#C8A84E]/50 focus:ring-1 focus:ring-[#C8A84E]/30`}
+              } focus:border-[#C8A55A]/50 focus:ring-1 focus:ring-[#C8A55A]/30`}
             />
             <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-white/30">
               ₽
@@ -280,13 +280,13 @@ export default function CalculatorPage() {
                 onClick={() => setLaunchType(lt.key)}
                 className={`rounded-xl p-3 text-left transition-all duration-200 ${
                   launchType === lt.key
-                    ? "border-2 border-[#C8A84E] bg-[#C8A84E]/10 shadow-lg shadow-[#C8A84E]/10"
+                    ? "border-2 border-[#C8A55A] bg-[#C8A55A]/10 shadow-lg shadow-[#C8A55A]/10"
                     : "border border-white/10 bg-white/[0.03] hover:border-white/20"
                 }`}
               >
                 <div
                   className={`text-sm font-bold ${
-                    launchType === lt.key ? "text-[#C8A84E]" : "text-white/80"
+                    launchType === lt.key ? "text-[#C8A55A]" : "text-white/80"
                   }`}
                 >
                   {lt.label}
@@ -316,7 +316,7 @@ export default function CalculatorPage() {
               onClick={() => setHasExperience((v) => !v)}
               className={`relative flex h-8 w-[88px] shrink-0 items-center rounded-full transition-colors duration-300 ${
                 hasExperience
-                  ? "bg-[#C8A84E]"
+                  ? "bg-[#C8A55A]"
                   : "bg-white/10"
               }`}
             >
@@ -330,7 +330,7 @@ export default function CalculatorPage() {
               </span>
               <span
                 className={`absolute right-3 text-[11px] font-bold transition-opacity duration-200 ${
-                  hasExperience ? "text-[#142E22] opacity-100" : "opacity-0"
+                  hasExperience ? "text-[#141414] opacity-100" : "opacity-0"
                 }`}
               >
                 Да
@@ -349,7 +349,7 @@ export default function CalculatorPage() {
         <button
           onClick={handleCalculate}
           disabled={isCalculating}
-          className="pulse-gold w-full rounded-2xl bg-gradient-to-r from-[#C8A84E] to-[#E8D5A0] py-4 text-base font-extrabold text-[#142E22] transition-all duration-200 hover:shadow-lg hover:shadow-[#C8A84E]/30 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
+          className="pulse-gold w-full rounded-2xl bg-gradient-to-r from-[#C8A55A] to-[#E8D5A0] py-4 text-base font-extrabold text-[#141414] transition-all duration-200 hover:shadow-lg hover:shadow-[#C8A55A]/30 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isCalculating ? (
             <span className="inline-flex items-center gap-2">
@@ -369,10 +369,10 @@ export default function CalculatorPage() {
       {isCalculating && (
         <div className="mt-6 flex flex-col items-center gap-3 py-8 fade-in-up">
           <div className="relative h-16 w-16">
-            <div className="absolute inset-0 animate-ping rounded-full bg-[#C8A84E]/20" />
-            <div className="absolute inset-2 animate-pulse rounded-full bg-[#C8A84E]/30" />
+            <div className="absolute inset-0 animate-ping rounded-full bg-[#C8A55A]/20" />
+            <div className="absolute inset-2 animate-pulse rounded-full bg-[#C8A55A]/30" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <svg className="w-8 h-8 text-[#C8A84E] animate-spin" fill="none" viewBox="0 0 24 24">
+              <svg className="w-8 h-8 text-[#C8A55A] animate-spin" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>
@@ -389,7 +389,7 @@ export default function CalculatorPage() {
         <div ref={resultsRef} className="mt-6 space-y-4 fade-in-up">
 
           {/* Revenue prognosis — 3 columns */}
-          <div className="rounded-2xl border border-[#C8A84E]/20 bg-gradient-to-br from-[#C8A84E]/10 to-transparent p-4">
+          <div className="rounded-2xl border border-[#C8A55A]/20 bg-gradient-to-br from-[#C8A55A]/10 to-transparent p-4">
             <h3 className="text-sm font-bold text-white/80 mb-4 text-center">
               Прогноз выручки первого запуска
             </h3>
@@ -407,16 +407,16 @@ export default function CalculatorPage() {
               </div>
 
               {/* Realistic */}
-              <div className="rounded-xl border border-[#C8A84E]/30 bg-[#C8A84E]/10 p-3 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-[#C8A84E]/5 to-transparent" />
+              <div className="rounded-xl border border-[#C8A55A]/30 bg-[#C8A55A]/10 p-3 text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#C8A55A]/5 to-transparent" />
                 <div className="relative">
-                  <div className="text-[10px] font-semibold uppercase tracking-wider text-[#C8A84E] mb-1.5">
+                  <div className="text-[10px] font-semibold uppercase tracking-wider text-[#C8A55A] mb-1.5">
                     Реалистич.
                   </div>
-                  <div className="text-xl font-extrabold text-[#C8A84E] leading-tight">
+                  <div className="text-xl font-extrabold text-[#C8A55A] leading-tight">
                     {fmt(animRealistic)}
                   </div>
-                  <div className="text-[10px] text-[#C8A84E]/60 mt-0.5">₽</div>
+                  <div className="text-[10px] text-[#C8A55A]/60 mt-0.5">₽</div>
                 </div>
               </div>
 
@@ -443,7 +443,7 @@ export default function CalculatorPage() {
                 {fmt(audience)}
               </span>
               <span className="text-white/30">&times;</span>
-              <span className="rounded-lg bg-white/[0.06] px-2.5 py-1.5 font-bold text-[#C8A84E]">
+              <span className="rounded-lg bg-white/[0.06] px-2.5 py-1.5 font-bold text-[#C8A55A]">
                 {(convRealistic * 100).toFixed(1)}%
               </span>
               <span className="text-white/30">&times;</span>
@@ -451,7 +451,7 @@ export default function CalculatorPage() {
                 {fmt(price)}&nbsp;₽
               </span>
               <span className="text-white/30">=</span>
-              <span className="rounded-lg bg-[#C8A84E]/15 px-2.5 py-1.5 font-extrabold text-[#C8A84E]">
+              <span className="rounded-lg bg-[#C8A55A]/15 px-2.5 py-1.5 font-extrabold text-[#C8A55A]">
                 {fmt(animRealistic)}&nbsp;₽
               </span>
             </div>
@@ -463,7 +463,7 @@ export default function CalculatorPage() {
               <div className="text-[11px] font-semibold uppercase tracking-wider text-white/40 mb-1">
                 Заявок нужно
               </div>
-              <div className="text-2xl font-extrabold text-[#C8A84E]">
+              <div className="text-2xl font-extrabold text-[#C8A55A]">
                 {fmt(animLeads)}
               </div>
               <div className="text-[10px] text-white/30 mt-1">
@@ -506,12 +506,12 @@ export default function CalculatorPage() {
             {/* Mentor bar */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs text-[#C8A84E]">С наставником</span>
-                <span className="text-xs font-bold text-[#C8A84E]">{fmt(animMentor)} ₽</span>
+                <span className="text-xs text-[#C8A55A]">С наставником</span>
+                <span className="text-xs font-bold text-[#C8A55A]">{fmt(animMentor)} ₽</span>
               </div>
               <div className="h-7 w-full rounded-full bg-white/[0.06] overflow-hidden">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-[#C8A84E] to-[#E8D5A0] transition-all duration-1000 ease-out relative"
+                  className="h-full rounded-full bg-gradient-to-r from-[#C8A55A] to-[#E8D5A0] transition-all duration-1000 ease-out relative"
                   style={{ width: `${barMentorWidth}%` }}
                 >
                   {/* Shimmer effect */}
@@ -519,7 +519,7 @@ export default function CalculatorPage() {
                 </div>
               </div>
               <div className="text-center mt-2">
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#C8A84E]/15 px-3 py-1 text-[11px] font-bold text-[#C8A84E]">
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#C8A55A]/15 px-3 py-1 text-[11px] font-bold text-[#C8A55A]">
                   &times;{mentorMultiplier} к выручке с наставником
                 </span>
               </div>
@@ -527,7 +527,7 @@ export default function CalculatorPage() {
           </div>
 
           {/* Raise price projection */}
-          <div className="rounded-2xl border border-[#C8A84E]/15 bg-gradient-to-r from-[#C8A84E]/[0.07] to-transparent p-4">
+          <div className="rounded-2xl border border-[#C8A55A]/15 bg-gradient-to-r from-[#C8A55A]/[0.07] to-transparent p-4">
             <h3 className="text-sm font-bold text-white/80 mb-2">
               Если поднять чек на 30%...
             </h3>
@@ -540,29 +540,29 @@ export default function CalculatorPage() {
                 <div className="text-base font-extrabold text-white/60">{fmt(animRealistic)} ₽</div>
               </div>
               <div className="shrink-0">
-                <svg className="w-5 h-5 text-[#C8A84E]" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <svg className="w-5 h-5 text-[#C8A55A]" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
               </div>
-              <div className="flex-1 rounded-xl border border-[#C8A84E]/30 bg-[#C8A84E]/10 p-3 text-center">
-                <div className="text-[10px] text-[#C8A84E]/60 mb-1">Стало</div>
-                <div className="text-base font-extrabold text-[#C8A84E]">{fmt(animRaised)} ₽</div>
+              <div className="flex-1 rounded-xl border border-[#C8A55A]/30 bg-[#C8A55A]/10 p-3 text-center">
+                <div className="text-[10px] text-[#C8A55A]/60 mb-1">Стало</div>
+                <div className="text-base font-extrabold text-[#C8A55A]">{fmt(animRaised)} ₽</div>
               </div>
             </div>
             <div className="text-center mt-2">
               <span className="text-[11px] text-white/40">
-                Разница: <span className="font-bold text-[#C8A84E]">+{fmt(revRaised - revRealistic)} ₽</span>
+                Разница: <span className="font-bold text-[#C8A55A]">+{fmt(revRaised - revRealistic)} ₽</span>
               </span>
             </div>
           </div>
 
           {/* Bottom CTA */}
-          <div className="rounded-2xl border border-[#C8A84E]/25 bg-gradient-to-br from-[#C8A84E]/15 to-[#142E22] p-5 text-center">
+          <div className="rounded-2xl border border-[#C8A55A]/25 bg-gradient-to-br from-[#C8A55A]/15 to-[#141414] p-5 text-center">
             <p className="text-base font-bold text-white mb-1">
               Хочешь получить не прогноз,
             </p>
             <p className="text-base font-bold text-white mb-1">
-              а реальные <span className="text-[#C8A84E]">300К за 6 недель</span>?
+              а реальные <span className="text-[#C8A55A]">300К за 6 недель</span>?
             </p>
             <p className="text-[11px] text-white/40 mt-2 mb-4">
               Карина покажет как превратить эти цифры в деньги на счету
@@ -571,7 +571,7 @@ export default function CalculatorPage() {
               href="https://t.me/KARINA_ProZAPUSKI?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E"
               target="_blank"
               rel="noopener noreferrer"
-              className="pulse-gold inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#C8A84E] to-[#E8D5A0] px-7 py-3 text-sm font-extrabold text-[#142E22] transition hover:shadow-lg hover:shadow-[#C8A84E]/30"
+              className="pulse-gold inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#C8A55A] to-[#E8D5A0] px-7 py-3 text-sm font-extrabold text-[#141414] transition hover:shadow-lg hover:shadow-[#C8A55A]/30"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
@@ -601,8 +601,8 @@ export default function CalculatorPage() {
           width: 22px;
           height: 22px;
           border-radius: 50%;
-          background: linear-gradient(135deg, #E8D5A0, #C8A84E);
-          border: 3px solid #142E22;
+          background: linear-gradient(135deg, #E8D5A0, #C8A55A);
+          border: 3px solid #141414;
           box-shadow: 0 0 8px rgba(200, 168, 78, 0.4);
           cursor: pointer;
           transition: box-shadow 0.2s;
@@ -614,8 +614,8 @@ export default function CalculatorPage() {
           width: 22px;
           height: 22px;
           border-radius: 50%;
-          background: linear-gradient(135deg, #E8D5A0, #C8A84E);
-          border: 3px solid #142E22;
+          background: linear-gradient(135deg, #E8D5A0, #C8A55A);
+          border: 3px solid #141414;
           box-shadow: 0 0 8px rgba(200, 168, 78, 0.4);
           cursor: pointer;
         }

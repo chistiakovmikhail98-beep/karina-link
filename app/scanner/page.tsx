@@ -391,11 +391,11 @@ function ProgressBar({ step, total }: { step: number; total: number }) {
         <span className="text-xs text-white/40">
           Шаг {step} из {total}
         </span>
-        <span className="text-xs text-[#C8A84E] font-medium">{Math.round(pct)}%</span>
+        <span className="text-xs text-[#C8A55A] font-medium">{Math.round(pct)}%</span>
       </div>
       <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-[#C8A84E] to-[#E8D5A0] transition-all duration-500 ease-out"
+          className="h-full rounded-full bg-gradient-to-r from-[#C8A55A] to-[#E8D5A0] transition-all duration-500 ease-out"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -420,13 +420,7 @@ function QuestionCard({
 }) {
   return (
     <div className="animate-[fadeSlideIn_0.4s_ease-out_forwards]">
-      <style>{`
-        @keyframes fadeSlideIn {
-          from { opacity: 0; transform: translateY(16px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-      <div className="rounded-2xl border border-[#C8A84E]/15 bg-[#142E22]/80 backdrop-blur-sm p-5 sm:p-6">
+      <div className="glass-card rounded-2xl p-5 sm:p-6">
         <h2 className="text-base sm:text-lg font-semibold text-white mb-5 leading-snug">
           {question}
         </h2>
@@ -460,7 +454,7 @@ function QuestionCard({
             disabled={!canProceed}
             className={`flex-1 rounded-full py-2.5 text-sm font-bold transition-all duration-300 ${
               canProceed
-                ? "bg-[#C8A84E] text-[#142E22] hover:bg-[#E8D5A0] shadow-[0_0_20px_rgba(200,168,78,0.15)]"
+                ? "bg-[#C8A55A] text-[#141414] hover:bg-[#E8D5A0] shadow-[0_0_20px_rgba(200,168,78,0.15)]"
                 : "bg-white/5 text-white/20 cursor-not-allowed"
             }`}
           >
@@ -497,24 +491,14 @@ function AnalyzingScreen() {
 
   return (
     <div className="flex flex-col items-center justify-center py-20">
-      <style>{`
-        @keyframes spinGold {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes pulseScale {
-          0%, 100% { transform: scale(1); opacity: 0.6; }
-          50% { transform: scale(1.15); opacity: 1; }
-        }
-      `}</style>
 
       {/* Spinner */}
       <div className="relative w-20 h-20 mb-8">
         <div
-          className="absolute inset-0 rounded-full border-[3px] border-[#C8A84E]/20"
+          className="absolute inset-0 rounded-full border-[3px] border-[#C8A55A]/20"
         />
         <div
-          className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-[#C8A84E] border-r-[#C8A84E]"
+          className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-[#C8A55A] border-r-[#C8A55A]"
           style={{ animation: "spinGold 1s linear infinite" }}
         />
         <div
@@ -525,7 +509,7 @@ function AnalyzingScreen() {
           className="absolute inset-0 flex items-center justify-center"
         >
           <div
-            className="w-3 h-3 rounded-full bg-[#C8A84E]"
+            className="w-3 h-3 rounded-full bg-[#C8A55A]"
             style={{ animation: "pulseScale 1.2s ease-in-out infinite" }}
           />
         </div>
@@ -544,7 +528,7 @@ function AnalyzingScreen() {
           <div
             key={i}
             className={`h-1.5 w-8 rounded-full transition-all duration-500 ${
-              i <= phase ? "bg-[#C8A84E]" : "bg-white/10"
+              i <= phase ? "bg-[#C8A55A]" : "bg-white/10"
             }`}
           />
         ))}
@@ -589,13 +573,13 @@ function ScoreRing({ score }: { score: number }) {
         />
         <defs>
           <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#C8A84E" />
+            <stop offset="0%" stopColor="#C8A55A" />
             <stop offset="100%" stopColor="#E8D5A0" />
           </linearGradient>
         </defs>
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-3xl font-bold text-[#C8A84E]">{score}</span>
+        <span className="text-3xl font-bold text-[#C8A55A]">{score}</span>
         <span className="text-[10px] text-white/40 uppercase tracking-wider">
           из 100
         </span>
@@ -627,7 +611,7 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
       {/* Header */}
       <div className={sectionClass(1)}>
         <div className="text-center mb-2">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#C8A84E]/15 px-3 py-1 text-xs font-bold text-[#C8A84E] uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#C8A55A]/15 px-3 py-1 text-xs font-bold text-[#C8A55A] uppercase tracking-wider mb-3">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
             </svg>
@@ -641,7 +625,7 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
 
       {/* Score */}
       <div className={sectionClass(1)}>
-        <div className="rounded-2xl border border-[#C8A84E]/15 bg-[#142E22]/80 p-5 text-center">
+        <div className="glass-card rounded-2xl/80 p-5 text-center">
           <p className="text-xs text-white/40 uppercase tracking-wider mb-3">
             Раскрытие потенциала
           </p>
@@ -658,14 +642,14 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
 
       {/* Superpower */}
       <div className={sectionClass(2)}>
-        <div className="rounded-2xl border border-[#C8A84E]/15 bg-[#142E22]/80 p-5">
+        <div className="glass-card rounded-2xl/80 p-5">
           <div className="flex items-center gap-2 mb-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C8A84E]/10">
-              <svg className="w-4 h-4 text-[#C8A84E]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C8A55A]/10">
+              <svg className="w-4 h-4 text-[#C8A55A]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
               </svg>
             </div>
-            <h3 className="text-sm font-bold text-[#C8A84E] uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-[#C8A55A] uppercase tracking-wider">
               Твоя суперсила
             </h3>
           </div>
@@ -677,14 +661,14 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
 
       {/* Positioning */}
       <div className={sectionClass(3)}>
-        <div className="rounded-2xl border border-[#C8A84E]/15 bg-[#142E22]/80 p-5">
+        <div className="glass-card rounded-2xl/80 p-5">
           <div className="flex items-center gap-2 mb-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C8A84E]/10">
-              <svg className="w-4 h-4 text-[#C8A84E]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C8A55A]/10">
+              <svg className="w-4 h-4 text-[#C8A55A]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h3 className="text-sm font-bold text-[#C8A84E] uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-[#C8A55A] uppercase tracking-wider">
               Позиционирование
             </h3>
           </div>
@@ -696,14 +680,14 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
 
       {/* Content topics */}
       <div className={sectionClass(4)}>
-        <div className="rounded-2xl border border-[#C8A84E]/15 bg-[#142E22]/80 p-5">
+        <div className="glass-card rounded-2xl/80 p-5">
           <div className="flex items-center gap-2 mb-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C8A84E]/10">
-              <svg className="w-4 h-4 text-[#C8A84E]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C8A55A]/10">
+              <svg className="w-4 h-4 text-[#C8A55A]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25H5.625a2.25 2.25 0 01-2.25-2.25V6.375c0-.621.504-1.125 1.125-1.125h3.375" />
               </svg>
             </div>
-            <h3 className="text-sm font-bold text-[#C8A84E] uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-[#C8A55A] uppercase tracking-wider">
               3 темы контента
             </h3>
           </div>
@@ -713,7 +697,7 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
                 key={i}
                 className="flex items-start gap-3 rounded-xl bg-white/[0.03] p-3"
               >
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C8A84E]/15 text-xs font-bold text-[#C8A84E]">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C8A55A]/15 text-xs font-bold text-[#C8A55A]">
                   {i + 1}
                 </span>
                 <p className="text-sm text-white/70 leading-relaxed">{topic}</p>
@@ -725,7 +709,7 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
 
       {/* Main error */}
       <div className={sectionClass(5)}>
-        <div className="rounded-2xl border border-red-500/15 bg-[#142E22]/80 p-5">
+        <div className="rounded-2xl border border-red-500/15 bg-[#141414]/80 p-5">
           <div className="flex items-center gap-2 mb-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-500/10">
               <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -744,7 +728,7 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
 
       {/* CTA */}
       <div className={sectionClass(5)}>
-        <div className="rounded-2xl bg-gradient-to-br from-[#C8A84E]/20 to-[#C8A84E]/5 border border-[#C8A84E]/25 p-5 text-center">
+        <div className="rounded-2xl bg-gradient-to-br from-[#C8A55A]/20 to-[#C8A55A]/5 border border-[#C8A55A]/25 p-5 text-center">
           <p className="text-sm text-white/60 mb-1">
             Хочешь раскрыть суперсилу на полную?
           </p>
@@ -755,7 +739,7 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
             href="https://t.me/KARINA_ProZAPUSKI?text=%D0%A5%D0%BE%D1%87%D1%83+%D1%80%D0%B0%D1%81%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D1%83"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#C8A84E] px-6 py-2.5 text-sm font-bold text-[#142E22] transition hover:bg-[#E8D5A0] pulse-gold"
+            className="inline-flex items-center gap-2 rounded-full bg-[#C8A55A] px-6 py-2.5 text-sm font-bold text-[#141414] transition hover:bg-[#E8D5A0] pulse-gold"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
@@ -879,7 +863,7 @@ export default function ScannerPage() {
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-all focus:border-[#C8A84E]/50 focus:bg-white/[0.06] focus:ring-1 focus:ring-[#C8A84E]/25"
+      className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-all focus:border-[#C8A55A]/50 focus:bg-white/[0.06] focus:ring-1 focus:ring-[#C8A55A]/25"
       onKeyDown={(e) => {
         if (e.key === "Enter" && canProceed()) handleNext();
       }}
@@ -897,7 +881,7 @@ export default function ScannerPage() {
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
       rows={4}
-      className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-all focus:border-[#C8A84E]/50 focus:bg-white/[0.06] focus:ring-1 focus:ring-[#C8A84E]/25 resize-none"
+      className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-all focus:border-[#C8A55A]/50 focus:bg-white/[0.06] focus:ring-1 focus:ring-[#C8A55A]/25 resize-none"
       autoFocus
     />
   );
@@ -915,7 +899,7 @@ export default function ScannerPage() {
           onClick={() => onChange(opt)}
           className={`rounded-xl border px-3 py-2.5 text-sm text-left transition-all ${
             value === opt
-              ? "border-[#C8A84E]/60 bg-[#C8A84E]/15 text-[#C8A84E] font-medium"
+              ? "border-[#C8A55A]/60 bg-[#C8A55A]/15 text-[#C8A55A] font-medium"
               : "border-white/10 bg-white/[0.03] text-white/60 hover:border-white/20 hover:bg-white/[0.06]"
           }`}
         >
@@ -940,20 +924,20 @@ export default function ScannerPage() {
             onClick={() => onToggle(opt)}
             className={`flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-sm text-left transition-all ${
               isChecked
-                ? "border-[#C8A84E]/60 bg-[#C8A84E]/15 text-white"
+                ? "border-[#C8A55A]/60 bg-[#C8A55A]/15 text-white"
                 : "border-white/10 bg-white/[0.03] text-white/60 hover:border-white/20 hover:bg-white/[0.06]"
             }`}
           >
             <div
               className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-all ${
                 isChecked
-                  ? "border-[#C8A84E] bg-[#C8A84E]"
+                  ? "border-[#C8A55A] bg-[#C8A55A]"
                   : "border-white/20 bg-transparent"
               }`}
             >
               {isChecked && (
                 <svg
-                  className="w-3 h-3 text-[#142E22]"
+                  className="w-3 h-3 text-[#141414]"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={3}

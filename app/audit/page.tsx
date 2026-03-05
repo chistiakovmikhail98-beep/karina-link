@@ -796,9 +796,9 @@ export default function AuditPage() {
       {step === "input" && (
         <div className="space-y-5 fade-in-up">
           {/* Intro */}
-          <div className="rounded-2xl border border-[#C8A84E]/15 bg-[#142E22]/60 p-4">
+          <div className="glass-card rounded-2xl/60 p-4">
             <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#C8A84E]/10 text-[#C8A84E]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#C8A55A]/10 text-[#C8A55A]">
                 <LightbulbIcon className="w-5 h-5" />
               </div>
               <div>
@@ -819,7 +819,7 @@ export default function AuditPage() {
               onChange={(e) => setOfferText(e.target.value)}
               placeholder={PLACEHOLDER_OFFER}
               rows={6}
-              className="w-full rounded-xl border border-white/10 bg-[#142E22]/80 px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-all focus:border-[#C8A84E]/50 focus:ring-1 focus:ring-[#C8A84E]/25 resize-none"
+              className="w-full rounded-xl border border-white/10 bg-[#141414]/80 px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-all focus:border-[#C8A55A]/50 focus:ring-1 focus:ring-[#C8A55A]/25 resize-none"
             />
             <div className="flex justify-between mt-1.5">
               <span className="text-[11px] text-white/30">
@@ -840,10 +840,10 @@ export default function AuditPage() {
               <select
                 value={niche}
                 onChange={(e) => setNiche(e.target.value)}
-                className="w-full appearance-none rounded-xl border border-white/10 bg-[#142E22]/80 px-4 py-3 pr-10 text-sm text-white outline-none transition-all focus:border-[#C8A84E]/50 focus:ring-1 focus:ring-[#C8A84E]/25 cursor-pointer"
+                className="w-full appearance-none rounded-xl border border-white/10 bg-[#141414]/80 px-4 py-3 pr-10 text-sm text-white outline-none transition-all focus:border-[#C8A55A]/50 focus:ring-1 focus:ring-[#C8A55A]/25 cursor-pointer"
               >
                 {NICHES.map(n => (
-                  <option key={n} value={n} className="bg-[#142E22] text-white">
+                  <option key={n} value={n} className="bg-[#141414] text-white">
                     {n}
                   </option>
                 ))}
@@ -856,7 +856,7 @@ export default function AuditPage() {
           <button
             onClick={runAnalysis}
             disabled={!offerText.trim()}
-            className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#C8A84E] py-3.5 text-sm font-bold text-[#142E22] transition-all hover:bg-[#E8D5A0] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#C8A84E] pulse-gold"
+            className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#C8A55A] py-3.5 text-sm font-bold text-[#141414] transition-all hover:bg-[#E8D5A0] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#C8A55A] pulse-gold"
           >
             <DocumentIcon className="w-5 h-5" />
             Проанализировать
@@ -871,22 +871,22 @@ export default function AuditPage() {
           <div className="relative w-24 h-24 mb-8">
             {/* Outer ring */}
             <div
-              className="absolute inset-0 rounded-full border-2 border-[#C8A84E]/20"
+              className="absolute inset-0 rounded-full border-2 border-[#C8A55A]/20"
               style={{ animation: "pulse 2s ease-in-out infinite" }}
             />
             {/* Middle ring */}
             <div
-              className="absolute inset-2 rounded-full border-2 border-[#C8A84E]/30"
+              className="absolute inset-2 rounded-full border-2 border-[#C8A55A]/30"
               style={{ animation: "pulse 2s ease-in-out infinite 0.3s" }}
             />
             {/* Inner ring */}
             <div
-              className="absolute inset-4 rounded-full border-2 border-[#C8A84E]/40"
+              className="absolute inset-4 rounded-full border-2 border-[#C8A55A]/40"
               style={{ animation: "pulse 2s ease-in-out infinite 0.6s" }}
             />
             {/* Center icon */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <DocumentIcon className="w-8 h-8 text-[#C8A84E]" />
+              <DocumentIcon className="w-8 h-8 text-[#C8A55A]" />
             </div>
             {/* Rotating scanner line */}
             <div
@@ -896,7 +896,7 @@ export default function AuditPage() {
                 transformOrigin: "center",
               }}
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-1/2 bg-gradient-to-b from-[#C8A84E] to-transparent rounded-full" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-1/2 bg-gradient-to-b from-[#C8A55A] to-transparent rounded-full" />
             </div>
           </div>
 
@@ -906,7 +906,7 @@ export default function AuditPage() {
           </h3>
 
           {/* Current step text */}
-          <p className="text-sm text-[#C8A84E] mb-6 h-5 transition-all duration-300">
+          <p className="text-sm text-[#C8A55A] mb-6 h-5 transition-all duration-300">
             {ANALYSIS_STEPS[loadingStep]}
           </p>
 
@@ -914,7 +914,7 @@ export default function AuditPage() {
           <div className="w-full max-w-xs">
             <div className="h-2 rounded-full bg-white/5 overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-[#C8A84E] to-[#E8D5A0] transition-all duration-100 ease-linear"
+                className="h-full rounded-full bg-gradient-to-r from-[#C8A55A] to-[#E8D5A0] transition-all duration-100 ease-linear"
                 style={{ width: `${loadingProgress}%` }}
               />
             </div>
@@ -924,7 +924,7 @@ export default function AuditPage() {
                 <div key={i} className="flex flex-col items-center gap-1">
                   <div
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      i <= loadingStep ? "bg-[#C8A84E] scale-110" : "bg-white/10"
+                      i <= loadingStep ? "bg-[#C8A55A] scale-110" : "bg-white/10"
                     }`}
                   />
                 </div>
@@ -932,16 +932,6 @@ export default function AuditPage() {
             </div>
           </div>
 
-          <style jsx>{`
-            @keyframes spin {
-              from { transform: rotate(0deg); }
-              to { transform: rotate(360deg); }
-            }
-            @keyframes pulse {
-              0%, 100% { transform: scale(1); opacity: 0.5; }
-              50% { transform: scale(1.05); opacity: 1; }
-            }
-          `}</style>
         </div>
       )}
 
@@ -963,12 +953,12 @@ export default function AuditPage() {
                 <button
                   key={criterion.key}
                   onClick={() => setExpandedCard(isExpanded ? null : criterion.key)}
-                  className="w-full text-left rounded-xl border border-white/8 bg-[#142E22]/60 transition-all duration-300 hover:border-[#C8A84E]/20 overflow-hidden"
+                  className="w-full text-left rounded-xl border border-white/8 bg-[#141414]/60 transition-all duration-300 hover:border-[#C8A55A]/20 overflow-hidden"
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
                   {/* Main row */}
                   <div className="flex items-center gap-3 p-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#C8A84E]/10 text-[#C8A84E]">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#C8A55A]/10 text-[#C8A55A]">
                       {criterion.icon}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -1005,15 +995,15 @@ export default function AuditPage() {
           </div>
 
           {/* What to improve */}
-          <div className="rounded-2xl border border-[#C8A84E]/15 bg-[#142E22]/60 p-5">
+          <div className="glass-card rounded-2xl/60 p-5">
             <div className="flex items-center gap-2 mb-4">
-              <LightbulbIcon className="w-5 h-5 text-[#C8A84E]" />
+              <LightbulbIcon className="w-5 h-5 text-[#C8A55A]" />
               <h3 className="text-sm font-bold text-white">Что улучшить</h3>
             </div>
             <ul className="space-y-3">
               {tips.map((tip, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C8A84E]/15 text-[10px] font-bold text-[#C8A84E] mt-0.5">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C8A55A]/15 text-[10px] font-bold text-[#C8A55A] mt-0.5">
                     {i + 1}
                   </span>
                   <span className="text-sm text-white/70 leading-relaxed">
@@ -1025,15 +1015,15 @@ export default function AuditPage() {
           </div>
 
           {/* Improved offer */}
-          <div className="rounded-2xl border border-[#C8A84E]/25 bg-gradient-to-br from-[#C8A84E]/8 to-[#C8A84E]/3 p-5">
+          <div className="rounded-2xl border border-[#C8A55A]/25 bg-gradient-to-br from-[#C8A55A]/8 to-[#C8A55A]/3 p-5">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <SparklesIcon className="w-5 h-5 text-[#C8A84E]" />
+                <SparklesIcon className="w-5 h-5 text-[#C8A55A]" />
                 <h3 className="text-sm font-bold text-white">Улучшенный оффер</h3>
               </div>
               <button
                 onClick={(e) => { e.stopPropagation(); copyImprovedOffer(); }}
-                className="flex items-center gap-1.5 rounded-lg bg-[#C8A84E]/15 px-3 py-1.5 text-xs font-medium text-[#C8A84E] transition-all hover:bg-[#C8A84E]/25"
+                className="flex items-center gap-1.5 rounded-lg bg-[#C8A55A]/15 px-3 py-1.5 text-xs font-medium text-[#C8A55A] transition-all hover:bg-[#C8A55A]/25"
               >
                 {copied ? (
                   <>
@@ -1048,7 +1038,7 @@ export default function AuditPage() {
                 )}
               </button>
             </div>
-            <div className="rounded-xl bg-[#142E22]/80 border border-white/5 p-4">
+            <div className="rounded-xl bg-[#141414]/80 border border-white/5 p-4">
               <p className="text-sm text-white/80 leading-relaxed whitespace-pre-line">
                 {improvedOffer}
               </p>
@@ -1058,7 +1048,7 @@ export default function AuditPage() {
           {/* Try again */}
           <button
             onClick={resetForm}
-            className="w-full flex items-center justify-center gap-2 rounded-xl border border-[#C8A84E]/25 py-3 text-sm font-semibold text-[#C8A84E] transition-all hover:bg-[#C8A84E]/10"
+            className="w-full flex items-center justify-center gap-2 rounded-xl border border-[#C8A55A]/25 py-3 text-sm font-semibold text-[#C8A55A] transition-all hover:bg-[#C8A55A]/10"
           >
             <ArrowPathIcon className="w-4 h-4" />
             Проверить другой оффер

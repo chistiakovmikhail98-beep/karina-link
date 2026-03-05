@@ -1,543 +1,435 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 
-/* ───────────────── ICON COMPONENTS ───────────────── */
+/* ─── icons ─── */
 
-function TelegramIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-    </svg>
-  );
-}
+const TgIcon = () => (
+  <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+  </svg>
+);
 
-function SparklesIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
-    </svg>
-  );
-}
+const Arrow = () => (
+  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+  </svg>
+);
 
-function TargetIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-    </svg>
-  );
-}
+const Check = ({ gold }: { gold?: boolean }) => (
+  <svg className={`w-[18px] h-[18px] shrink-0 ${gold ? "text-[#C8A55A]" : "text-[#555]"}`} viewBox="0 0 20 20" fill="currentColor">
+    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+  </svg>
+);
 
-function CalcIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25v-.008Zm2.498-6h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007v-.008Zm2.504-6h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008v-.008Zm2.498-6h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008v-.008ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
-    </svg>
-  );
-}
+/* ─── Floating Particles ─── */
 
-function ClipboardIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
-    </svg>
-  );
-}
+const Particles = () => (
+  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    {Array.from({ length: 14 }).map((_, i) => (
+      <div
+        key={i}
+        className="absolute rounded-full bg-[#C8A55A]"
+        style={{
+          width: `${2 + (i % 3)}px`,
+          height: `${2 + (i % 3)}px`,
+          left: `${8 + (i * 7) % 84}%`,
+          top: `${10 + (i * 11) % 80}%`,
+          opacity: 0.12 + (i % 4) * 0.06,
+          animation: `float-particle ${8 + (i % 5) * 2}s ease-in-out infinite`,
+          animationDelay: `${i * 0.7}s`,
+          ['--tx' as string]: `${-20 + (i % 3) * 25}px`,
+          ['--ty' as string]: `${-40 - (i % 4) * 15}px`,
+        }}
+      />
+    ))}
+  </div>
+);
 
-function PenIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-    </svg>
-  );
-}
+/* ─── data ─── */
 
-function RocketIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-    </svg>
-  );
-}
+const TG = "https://t.me/KARINA_ProZAPUSKI";
+const CH = "https://t.me/dengi_na_expertnosti";
 
-function StarIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
-    </svg>
-  );
-}
+const tools = [
+  { icon: "sparkle", title: "Сканер суперсилы", desc: "AI найдёт уникальное позиционирование", badge: "AI", href: "/scanner" },
+  { icon: "target", title: "Аудит оффера", desc: "Оценка по 5 критериям + улучшенные варианты", badge: "AI", href: "/audit" },
+  { icon: "calc", title: "Калькулятор запуска", desc: "Прогноз выручки за 60 секунд", badge: "New", href: "/calculator" },
+  { icon: "clipboard", title: "Диагностика эксперта", desc: "20 вопросов — что мешает зарабатывать", badge: "Тест", href: "/diagnostic" },
+  { icon: "pen", title: "Контент-план 30 дней", desc: "План постов с заголовками и CTA", badge: "AI", href: "/content-plan" },
+];
 
-function ChevronIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-    </svg>
-  );
-}
+const stats = [
+  { value: "7+", label: "лет в онлайн-бизнесе" },
+  { value: "50+", label: "ниш — от эзотерики до IT" },
+  { value: "40М", label: "рублей / месяц рекорд" },
+];
 
-function FireIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
-    </svg>
-  );
-}
+const results = [
+  { n: "4,3 млн ₽", sub: "за 24 часа", d: "Монетизация базы подписчиков" },
+  { n: "759 976 ₽", sub: "первый запуск", d: "Онлайн-продукт с нуля" },
+  { n: "2,3 млн", sub: "за 28 дней", d: "Масштаб онлайн-школы с 700K" },
+  { n: "243%", sub: "ROMI", d: "Окупаемость рекламы на холодный трафик" },
+  { n: "30+", sub: "экспертов", d: "Нашли суперсилу и продают" },
+];
 
-function UsersIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-    </svg>
-  );
-}
+const materials = [
+  { t: "Чек-лист: 10 шагов запуска онлайн-курса", k: "Чек-лист" },
+  { t: "PDF: 100 продающих заголовков", k: "Заголовки" },
+  { t: "Видеоурок: Позиционирование и суперсила", k: "Видеоурок" },
+  { t: "Таблица прогнозирования дохода", k: "Таблица" },
+  { t: "Шаблон X-mind карты для целей", k: "Карта целей" },
+];
 
-function HeartIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-      <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
-    </svg>
-  );
-}
+const toolIconPaths: Record<string, string> = {
+  sparkle: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z",
+  target: "M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+  calc: "M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25v-.008ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z",
+  clipboard: "M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z",
+  pen: "m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10",
+};
 
-/* ───────────────── TOOL CARD ───────────────── */
-
-interface ToolCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  badge: string;
-  href: string;
-  delay?: number;
-}
-
-function ToolCard({ icon, title, description, badge, href, delay = 0 }: ToolCardProps) {
-  return (
-    <Link
-      href={href}
-      className="group block rounded-2xl border border-[#C8A84E]/20 bg-[#142E22]/80 backdrop-blur-sm p-5 transition-all duration-300 hover:border-[#C8A84E]/50 hover:bg-[#1B3C2D] hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(200,168,78,0.1)]"
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#C8A84E]/10 text-[#C8A84E] transition-colors group-hover:bg-[#C8A84E]/20">
-          {icon}
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <h3 className="text-base font-semibold text-white truncate">{title}</h3>
-            <span className="shrink-0 inline-flex items-center rounded-full bg-[#C8A84E]/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#C8A84E]">
-              {badge}
-            </span>
-          </div>
-          <p className="text-sm text-white/60 leading-relaxed">{description}</p>
-        </div>
-        <ChevronIcon className="w-5 h-5 text-white/20 shrink-0 mt-1 transition-all group-hover:text-[#C8A84E] group-hover:translate-x-1" />
-      </div>
-    </Link>
-  );
-}
-
-/* ───────────────── PROGRAM CARD ───────────────── */
-
-interface ProgramCardProps {
-  title: string;
-  subtitle: string;
-  features: string[];
-  price: string;
-  href: string;
-  featured?: boolean;
-}
-
-function ProgramCard({ title, subtitle, features, price, href, featured = false }: ProgramCardProps) {
-  return (
-    <div
-      className={`relative rounded-2xl p-[1px] transition-all duration-300 hover:scale-[1.02] ${
-        featured
-          ? "bg-gradient-to-b from-[#C8A84E] via-[#C8A84E]/40 to-[#C8A84E]/10"
-          : "bg-gradient-to-b from-white/10 to-white/5"
-      }`}
-    >
-      {featured && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#C8A84E] px-3 py-1 text-xs font-bold text-[#142E22]">
-            <FireIcon className="w-3 h-3" /> ХИТ
-          </span>
-        </div>
-      )}
-      <div className="rounded-2xl bg-[#142E22] p-6">
-        <h3 className="text-lg font-bold text-white mb-1">{title}</h3>
-        <p className="text-sm text-white/50 mb-4">{subtitle}</p>
-        <ul className="space-y-2 mb-5">
-          {features.map((f, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-white/70">
-              <span className="mt-0.5 text-[#C8A84E]">&#10003;</span>
-              {f}
-            </li>
-          ))}
-        </ul>
-        <div className="flex items-center justify-between">
-          <span className="text-lg font-bold text-[#C8A84E]">{price}</span>
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold transition-all ${
-              featured
-                ? "bg-[#C8A84E] text-[#142E22] hover:bg-[#E8D5A0]"
-                : "border border-[#C8A84E]/30 text-[#C8A84E] hover:bg-[#C8A84E]/10"
-            }`}
-          >
-            Подробнее
-            <ChevronIcon className="w-3 h-3" />
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ───────────────── STAT CARD ───────────────── */
-
-function StatCard({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="text-center">
-      <div className="text-2xl sm:text-3xl font-bold gold-shimmer">{value}</div>
-      <div className="text-xs sm:text-sm text-white/50 mt-1">{label}</div>
-    </div>
-  );
-}
-
-/* ───────────────── MAIN PAGE ───────────────── */
+/* ═══════════════════════════════════════════════════════
+   PAGE
+   ═══════════════════════════════════════════════════════ */
 
 export default function Home() {
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
-
-    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
-      observerRef.current?.observe(el);
-    });
-
-    return () => observerRef.current?.disconnect();
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
-  const TG_LINK = "https://t.me/KARINA_ProZAPUSKI";
-  const CHANNEL_LINK = "https://t.me/dengi_na_expertnosti";
-
   return (
-    <div className="flex min-h-screen flex-col items-center">
-      {/* ─── GOLD TOP LINE ─── */}
-      <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-[#C8A84E] to-transparent" />
+    <>
+      {/* ════════ HERO ════════ */}
+      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+        {/* bg glows */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[#C8A55A]/[0.04] blur-[120px]" />
+          <div className="absolute top-[30%] left-[30%] w-[400px] h-[400px] rounded-full bg-[#6B5B95]/[0.025] blur-[100px]" />
+        </div>
 
-      <div className="w-full max-w-md px-4 py-8 sm:px-6">
-        {/* ═══════════════════ HERO ═══════════════════ */}
-        <section className="flex flex-col items-center text-center mb-10 fade-in-up">
-          {/* Avatar */}
-          <div className="relative mb-5">
-            <div className="w-28 h-28 rounded-full bg-gradient-to-br from-[#C8A84E] to-[#E8D5A0] p-[2px]">
-              <div className="w-full h-full rounded-full bg-[#1B3C2D] flex items-center justify-center overflow-hidden">
-                <span className="text-4xl font-bold text-[#C8A84E]">KM</span>
-              </div>
-            </div>
-            <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-[#C8A84E] rounded-full flex items-center justify-center">
-              <SparklesIcon className="w-4 h-4 text-[#142E22]" />
-            </div>
-          </div>
+        <Particles />
 
-          {/* Name */}
-          <h1 className="text-2xl font-bold text-white mb-1">Карина Мамедова</h1>
-          <p className="text-[#C8A84E] font-medium text-sm mb-3">
+        <div className="relative z-10 w-full max-w-[680px] mx-auto px-6 py-24 text-center animate-fade-up">
+          {/* eyebrow */}
+          <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-6">
             Продюсер &middot; Маркетолог &middot; Наставник
           </p>
 
-          {/* Tagline */}
-          <p className="text-white/70 text-sm leading-relaxed max-w-xs mb-5">
-            Помогаю экспертам превращать знания в деньги, а соцсети — в источник стабильного дохода.
-            От самозапуска на 300K до системного бизнеса на 1+ млн.
+          {/* decorative line */}
+          <div className="w-[100px] h-px mx-auto mb-8 bg-gradient-to-r from-transparent via-[#C8A55A]/40 to-transparent" />
+
+          <h1 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] font-medium leading-[1.08] tracking-tight mb-6">
+            Карина{" "}
+            <span className="text-shimmer">Мамедова</span>
+          </h1>
+
+          <p className="text-[clamp(1rem,2.2vw,1.2rem)] text-[#8A8A8A] leading-[1.7] max-w-[440px] mx-auto mb-12">
+            Помогаю экспертам превращать знания в&nbsp;деньги.
+            От&nbsp;самозапуска на&nbsp;<span className="text-[#F2F0ED] font-medium">300K</span>{" "}
+            до системного бизнеса на&nbsp;<span className="text-[#F2F0ED] font-medium">1+&nbsp;млн</span>
           </p>
 
-          {/* CTA buttons */}
-          <div className="flex gap-3 w-full max-w-xs">
-            <a
-              href={TG_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 rounded-full bg-[#C8A84E] py-3 text-sm font-bold text-[#142E22] transition-all hover:bg-[#E8D5A0] pulse-gold"
-            >
-              <TelegramIcon className="w-4 h-4" />
-              Написать
+          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-[380px] mx-auto">
+            <a href={TG} target="_blank" rel="noopener noreferrer"
+              className="btn-sweep pulse-gold flex items-center justify-center gap-2.5 h-[54px] px-8 rounded-xl bg-[#C8A55A] text-[15px] font-semibold text-[#0A0A0A] transition-all duration-200 hover:bg-[#D9BA6E] hover:-translate-y-0.5">
+              <TgIcon />
+              Написать Карине
             </a>
-            <a
-              href={CHANNEL_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 rounded-full border border-[#C8A84E]/30 py-3 text-sm font-semibold text-[#C8A84E] transition-all hover:bg-[#C8A84E]/10"
-            >
+            <a href={CH} target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 h-[54px] px-8 rounded-xl border border-[#333] text-[15px] font-medium text-[#8A8A8A] transition-all duration-200 hover:border-[#555] hover:text-[#F2F0ED] hover:bg-white/[0.02]">
               Канал
             </a>
           </div>
-        </section>
+        </div>
 
-        {/* ═══════════════════ STATS ═══════════════════ */}
-        <section className="animate-on-scroll mb-10">
-          <div className="grid grid-cols-3 gap-4 rounded-2xl border border-[#C8A84E]/10 bg-[#142E22]/60 backdrop-blur-sm p-5">
-            <StatCard value="7+" label="лет в онлайне" />
-            <StatCard value="50+" label="ниш" />
-            <StatCard value="40М" label="рек. оборот/мес" />
-          </div>
-        </section>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator text-[#555]">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </div>
+      </section>
 
-        {/* ═══════════════════ FREE AI TOOLS ═══════════════════ */}
-        <section className="animate-on-scroll mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <SparklesIcon className="w-5 h-5 text-[#C8A84E]" />
-            <h2 className="text-lg font-bold text-white">Бесплатные AI-инструменты</h2>
+      {/* ════════ STATS ════════ */}
+      <section className="relative py-20 md:py-24">
+        {/* subtle radial bg */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] rounded-full bg-[#C8A55A]/[0.02] blur-[80px]" />
+        </div>
+        <div className="relative z-10 max-w-[800px] mx-auto px-6 reveal">
+          <div className="grid grid-cols-3 gap-4 text-center">
+            {stats.map((s, i) => (
+              <div key={i} className="glass-card rounded-2xl py-6 px-4">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#C8A55A]/60 mx-auto mb-4" />
+                <div className="font-display text-[clamp(2rem,5vw,3.5rem)] font-medium text-[#C8A55A] leading-none mb-2">{s.value}</div>
+                <div className="text-[clamp(0.6rem,1.2vw,0.75rem)] uppercase tracking-[0.2em] text-[#555] font-medium">{s.label}</div>
+              </div>
+            ))}
           </div>
-          <p className="text-sm text-white/50 mb-5">
-            Попробуй прямо сейчас — получи персональный результат за 2 минуты
-          </p>
-          <div className="space-y-3">
-            <ToolCard
-              icon={<SparklesIcon className="w-6 h-6" />}
-              title="Сканер суперсилы"
-              description="Узнай свою уникальность как эксперта. AI проанализирует твой опыт и выдаст позиционирование"
-              badge="AI"
-              href="/scanner"
-              delay={0}
-            />
-            <ToolCard
-              icon={<TargetIcon className="w-6 h-6" />}
-              title="Аудит оффера"
-              description="Вставь свой оффер — получи оценку по 5 критериям и 3 улучшенных варианта"
-              badge="AI"
-              href="/audit"
-              delay={100}
-            />
-            <ToolCard
-              icon={<CalcIcon className="w-6 h-6" />}
-              title="Калькулятор запуска"
-              description="Рассчитай прогноз выручки первого запуска за 60 секунд"
-              badge="NEW"
-              href="/calculator"
-              delay={200}
-            />
-            <ToolCard
-              icon={<ClipboardIcon className="w-6 h-6" />}
-              title="Диагностика эксперта"
-              description="20 вопросов — и ты узнаешь, что именно мешает тебе зарабатывать. 4 типа проблем"
-              badge="ТЕСТ"
-              href="/diagnostic"
-              delay={300}
-            />
-            <ToolCard
-              icon={<PenIcon className="w-6 h-6" />}
-              title="Контент-план на 30 дней"
-              description="Получи готовый план постов с заголовками, тезисами и CTA по твоей нише"
-              badge="AI"
-              href="/content-plan"
-              delay={400}
-            />
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ═══════════════════ PROGRAMS ═══════════════════ */}
-        <section className="animate-on-scroll mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <RocketIcon className="w-5 h-5 text-[#C8A84E]" />
-            <h2 className="text-lg font-bold text-white">Программы</h2>
+      {/* ════════ AI TOOLS ════════ */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[1000px] mx-auto px-6 md:px-12">
+          <div className="text-center reveal mb-16">
+            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">AI Инструменты</p>
+            <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-tight">
+              Бесплатная диагностика
+            </h2>
+            <p className="text-[15px] text-[#666] mt-4 max-w-[400px] mx-auto">
+              Получи персональный результат за 2 минуты
+            </p>
           </div>
-          <div className="space-y-4">
-            <ProgramCard
-              title="Распаковка суперсилы"
-              subtitle="Индивидуальная сессия 3-4 часа в Zoom"
-              features={[
-                "Найдём твою уникальность и суперсилу",
-                "Сформулируем позиционирование",
-                "Определим 10+ тем для контента",
-                "Разберём блоки и страхи",
-              ]}
-              price="от 5 000 ₽"
-              href={TG_LINK + "?text=%D0%A0%D0%B0%D1%81%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D0%B0"}
-            />
-            <ProgramCard
-              title="Формула САМОзапуска"
-              subtitle="6 модулей, 12 живых созвонов, поддержка 1 мес."
-              features={[
-                "Стратегия запуска под ключ",
-                "Оффер, контент-план, воронка",
-                "Мастермайнд-группа и куратор",
-                "Шаблоны, чек-листы, скрипты",
-                "Результат: от 300 000 ₽ за 6 недель",
-              ]}
-              price="от 150 000 ₽"
-              href={TG_LINK + "?text=%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA"}
-              featured
-            />
-            <ProgramCard
-              title="Наставничество с внедрением"
-              subtitle="Индивидуальная работа + команда Карины"
-              features={[
-                "Глубокий аудит твоего проекта",
-                "Персональная стратегия роста",
-                "Ведение от идеи до продаж",
-                "Работа с мышлением и масштабированием",
-              ]}
-              price="по запросу"
-              href={TG_LINK + "?text=%D0%9D%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE"}
-            />
-          </div>
-        </section>
 
-        {/* ═══════════════════ RESULTS ═══════════════════ */}
-        <section className="animate-on-scroll mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <StarIcon className="w-5 h-5 text-[#C8A84E]" />
-            <h2 className="text-lg font-bold text-white">Результаты</h2>
-          </div>
-          <div className="space-y-3">
-            {[
-              { result: "4,3 млн ₽ за 24 часа", desc: "Монетизация базы подписчиков" },
-              { result: "759 976 ₽ первый запуск", desc: "Первый онлайн-продукт с нуля" },
-              { result: "700K → 2,3 млн за 28 дней", desc: "Кризис-менеджмент онлайн-школы" },
-              { result: "ROMI 243%", desc: "Окупаемость рекламы на холодный трафик" },
-              { result: "30+ экспертов", desc: "Нашли суперсилу и научились продавать" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-4 rounded-xl border border-white/5 bg-[#142E22]/60 p-4 transition-all hover:border-[#C8A84E]/20"
-              >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#C8A84E]/10">
-                  <FireIcon className="w-5 h-5 text-[#C8A84E]" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {tools.map((t, i) => (
+              <Link key={i} href={t.href}
+                className={`reveal reveal-d${Math.min(i + 1, 5)} group glass-card glass-card-hover relative rounded-2xl p-6 md:p-7 overflow-hidden ${i === tools.length - 1 ? "md:col-span-2" : ""}`}>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 shrink-0 rounded-xl bg-[#C8A55A]/10 flex items-center justify-center text-[#C8A55A] transition-all duration-300 group-hover:bg-[#C8A55A]/15 group-hover:shadow-[0_0_20px_rgba(200,165,90,0.15)]">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={toolIconPaths[t.icon]} />
+                    </svg>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-[15px] font-semibold text-[#F2F0ED]">{t.title}</span>
+                      <span className="shrink-0 text-[9px] font-bold uppercase tracking-wider text-[#C8A55A] bg-[#C8A55A]/10 px-2 py-0.5 rounded">
+                        {t.badge}
+                      </span>
+                    </div>
+                    <p className="text-[13px] text-[#666] leading-relaxed">{t.desc}</p>
+                  </div>
+                  <div className="shrink-0 mt-1 text-[#333] group-hover:text-[#C8A55A] transition-colors duration-300">
+                    <Arrow />
+                  </div>
                 </div>
-                <div>
-                  <div className="text-sm font-bold text-[#C8A84E]">{item.result}</div>
-                  <div className="text-xs text-white/50">{item.desc}</div>
+                {/* hover progress line */}
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#C8A55A]/60 to-[#E8D48A]/40 transition-all duration-500 group-hover:w-full" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ PROGRAMS ════════ */}
+      <section className="py-24 md:py-32 bg-[#080808]">
+        <div className="max-w-[1000px] mx-auto px-6 md:px-12">
+          <div className="text-center reveal mb-16">
+            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">Программы</p>
+            <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-tight">
+              Работа с Кариной
+            </h2>
+          </div>
+
+          {/* Featured card */}
+          <div className="reveal mb-8">
+            <div className="glass-card rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 80px rgba(200,165,90,0.06)' }}>
+              <div className="h-[3px] bg-gradient-to-r from-transparent via-[#C8A55A] to-transparent" />
+              <div className="p-8 md:p-10 lg:p-12">
+                <div className="lg:flex lg:gap-12">
+                  {/* Left */}
+                  <div className="lg:flex-1">
+                    <span className="inline-block px-4 py-1.5 rounded-lg bg-[#C8A55A] text-[#0A0A0A] text-[10px] font-bold uppercase tracking-[0.15em] mb-8">
+                      Хит продаж
+                    </span>
+                    <h3 className="font-display text-[clamp(1.5rem,3vw,2rem)] font-medium mb-2">Формула САМОзапуска</h3>
+                    <p className="text-[12px] uppercase tracking-[0.15em] text-[#555] font-medium mb-8">
+                      6 модулей &middot; 12 созвонов &middot; поддержка 1 мес.
+                    </p>
+                    <ul className="space-y-3.5 mb-8 lg:mb-0">
+                      {["Стратегия запуска под ключ", "Оффер, контент-план, воронка", "Мастермайнд-группа и куратор", "Шаблоны, чек-листы, скрипты", "Результат: от 300 000 ₽ за 6 недель"].map((f, i) => (
+                        <li key={i} className="flex items-center gap-3 text-[14px] md:text-[15px] text-[#999]">
+                          <Check gold /> {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {/* Right */}
+                  <div className="lg:w-[280px] lg:shrink-0 lg:flex lg:flex-col lg:justify-end pt-8 lg:pt-0 border-t lg:border-t-0 lg:border-l border-white/[0.06] lg:pl-12">
+                    <div className="text-[11px] uppercase tracking-[0.2em] text-[#555] font-semibold mb-2">Стоимость</div>
+                    <div className="font-display text-[clamp(2rem,4vw,2.75rem)] font-medium text-shimmer leading-none mb-8">
+                      150 000 ₽
+                    </div>
+                    <a href={TG + "?text=%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA"} target="_blank" rel="noopener noreferrer"
+                      className="btn-sweep flex items-center justify-center gap-2.5 w-full h-[52px] rounded-xl bg-[#C8A55A] text-[14px] font-semibold text-[#0A0A0A] transition-all duration-200 hover:bg-[#D9BA6E] shadow-[0_4px_24px_rgba(200,165,90,0.25)]">
+                      <TgIcon />
+                      Узнать подробнее
+                    </a>
+                    <p className="text-[11px] text-[#444] mt-4 text-center">30+ экспертов уже запустились</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Regular cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              {
+                title: "Распаковка суперсилы",
+                sub: "Индивидуальная сессия · 3-4 часа · Zoom",
+                features: ["Найдём уникальность и суперсилу", "Сформулируем позиционирование", "10+ тем для контента", "Разберём блоки и страхи"],
+                price: "5 000 ₽",
+                link: TG + "?text=%D0%A0%D0%B0%D1%81%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D0%B0",
+              },
+              {
+                title: "Наставничество с внедрением",
+                sub: "Индивидуально · Команда Карины",
+                features: ["Глубокий аудит проекта", "Персональная стратегия роста", "Ведение от идеи до продаж", "Мышление и масштабирование"],
+                price: "по запросу",
+                link: TG + "?text=%D0%9D%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE",
+              },
+            ].map((p, i) => (
+              <div key={i} className={`reveal reveal-d${i + 1} group glass-card glass-card-hover rounded-2xl p-7 md:p-8 relative overflow-hidden`}>
+                {/* hover left accent */}
+                <div className="absolute left-0 top-0 w-[3px] h-0 bg-gradient-to-b from-[#C8A55A] to-[#A68B3C] transition-all duration-500 group-hover:h-full rounded-l-2xl" />
+                <h3 className="font-display text-[clamp(1.1rem,2vw,1.35rem)] font-medium mb-1.5">{p.title}</h3>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-[#555] font-medium mb-6">{p.sub}</p>
+                <ul className="space-y-2.5 mb-7">
+                  {p.features.map((f, j) => (
+                    <li key={j} className="flex items-center gap-2.5 text-[13px] text-[#777]"><Check /> {f}</li>
+                  ))}
+                </ul>
+                <div className="pt-6 border-t border-white/[0.06]">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-[#444] font-semibold mb-1.5">Стоимость</div>
+                  <div className="font-display text-[24px] font-medium text-shimmer leading-none mb-5">{p.price}</div>
+                  <a href={p.link} target="_blank" rel="noopener noreferrer"
+                    className="btn-sweep flex items-center justify-center gap-2 w-full h-[46px] rounded-xl border border-[#C8A55A]/20 text-[13px] font-semibold text-[#C8A55A]/80 transition-all duration-200 hover:bg-[#C8A55A]/10 hover:border-[#C8A55A]/40 hover:text-[#C8A55A]">
+                    Подробнее <Arrow />
+                  </a>
                 </div>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ═══════════════════ FREE MATERIALS ═══════════════════ */}
-        <section className="animate-on-scroll mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <HeartIcon className="w-5 h-5 text-[#C8A84E]" />
-            <h2 className="text-lg font-bold text-white">Бесплатные материалы</h2>
+      {/* ════════ RESULTS ════════ */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[1000px] mx-auto px-6 md:px-12">
+          <div className="text-center reveal mb-16">
+            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">Кейсы</p>
+            <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-tight">
+              Результаты учеников
+            </h2>
           </div>
-          <div className="space-y-2">
-            {[
-              { text: "Чек-лист: 10 шагов запуска онлайн-курса", keyword: "Чек-лист" },
-              { text: "PDF: 100 продающих заголовков", keyword: "Заголовки" },
-              { text: "Видеоурок: Позиционирование и суперсила", keyword: "Видеоурок" },
-              { text: "Таблица прогнозирования дохода", keyword: "Таблица" },
-              { text: "Шаблон X-mind карты для целей", keyword: "Карта целей" },
-            ].map((item, i) => (
-              <a
-                key={i}
-                href={TG_LINK + "?text=" + encodeURIComponent(item.keyword)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between rounded-xl border border-white/5 bg-[#142E22]/40 px-4 py-3 transition-all hover:border-[#C8A84E]/20 hover:bg-[#1B3C2D] group"
-              >
-                <span className="text-sm text-white/70 group-hover:text-white transition-colors">
-                  {item.text}
-                </span>
-                <span className="shrink-0 ml-2 text-xs font-semibold text-[#C8A84E] opacity-0 group-hover:opacity-100 transition-opacity">
-                  Скачать &rarr;
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {results.map((r, i) => (
+              <div key={i} className={`reveal reveal-d${Math.min(i + 1, 5)} group glass-card glass-card-hover rounded-2xl overflow-hidden ${i === 0 ? "lg:col-span-2 lg:row-span-1" : ""}`}>
+                {/* gold top accent */}
+                <div className="h-[3px] bg-gradient-to-r from-[#C8A55A]/40 via-[#C8A55A]/60 to-[#C8A55A]/40" />
+                <div className="p-6 md:p-7">
+                  <div className="font-display text-[clamp(1.3rem,2.5vw,1.65rem)] font-medium text-[#C8A55A] leading-none mb-1.5">{r.n}</div>
+                  <div className="text-[11px] uppercase tracking-[0.15em] text-[#555] font-medium mb-3">{r.sub}</div>
+                  <div className="text-[13px] text-[#777] leading-relaxed">{r.d}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ MATERIALS ════════ */}
+      <section className="py-20 md:py-24 bg-[#080808]">
+        <div className="max-w-[720px] mx-auto px-6 md:px-12">
+          <div className="text-center reveal mb-12">
+            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">Бесплатно</p>
+            <h2 className="font-display text-[clamp(1.5rem,3vw,2.25rem)] font-medium">Материалы</h2>
+          </div>
+          <div className="space-y-2 reveal">
+            {materials.map((m, i) => (
+              <a key={i} href={TG + "?text=" + encodeURIComponent(m.k)} target="_blank" rel="noopener noreferrer"
+                className="group relative flex items-center gap-4 glass-card glass-card-hover rounded-xl px-5 py-4 overflow-hidden">
+                {/* hover left bar */}
+                <div className="absolute left-0 top-0 w-[3px] h-0 bg-[#C8A55A] transition-all duration-300 group-hover:h-full rounded-l-xl" />
+                {/* number */}
+                <span className="text-[11px] font-mono text-[#333] shrink-0 w-5">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-[14px] text-[#777] group-hover:text-[#F2F0ED] transition-colors flex-1">{m.t}</span>
+                <span className="shrink-0 ml-3 text-[#C8A55A] opacity-40 group-hover:opacity-100 transition-all translate-x-1 group-hover:translate-x-0">
+                  <Arrow />
                 </span>
               </a>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ═══════════════════ ABOUT ═══════════════════ */}
-        <section className="animate-on-scroll mb-10">
-          <div className="rounded-2xl border border-[#C8A84E]/10 bg-[#142E22]/60 p-6">
-            <h2 className="text-lg font-bold text-white mb-3">Обо мне</h2>
-            <div className="space-y-3 text-sm text-white/60 leading-relaxed">
+      {/* ════════ ABOUT ════════ */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[720px] mx-auto px-6 md:px-12 reveal">
+          <div className="text-center mb-12">
+            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">О себе</p>
+          </div>
+          <div className="border-gold-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+            {/* decorative quote */}
+            <div className="absolute top-4 left-6 font-display text-[80px] leading-none text-[#C8A55A]/[0.07] select-none pointer-events-none">&ldquo;</div>
+            <div className="relative space-y-5 text-[15px] md:text-[16px] text-[#888] leading-[1.8]">
               <p>
-                7 лет в онлайн-бизнесе: от техспеца до управляющего онлайн-школ.
-                Рекорд — 40 млн руб./мес. на 3 автоворонках.
+                <span className="text-[#F2F0ED] font-semibold">7 лет</span> в онлайн-бизнесе.
+                Рекорд — <span className="text-[#F2F0ED] font-semibold">40 млн руб./мес</span> на 3 автоворонках.
               </p>
               <p>
-                Живу в Стамбуле. Знаю как продавать в 50+ нишах —
+                Живу в Стамбуле. Продавала в <span className="text-[#F2F0ED] font-semibold">50+ нишах</span> —
                 от эзотерики до обучения профессиям.
               </p>
               <p>
-                Провожу трансформационные распаковки, после которых
-                эксперты растут, меняют жизни и начинают продавать.
+                Провожу трансформационные распаковки, после которых эксперты начинают продавать.
               </p>
             </div>
-            <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/5">
-              <UsersIcon className="w-4 h-4 text-[#C8A84E]" />
-              <span className="text-xs text-white/40">
-                Со-основатель агентства недвижимости в Турции с 2022 года
-              </span>
-            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ═══════════════════ FINAL CTA ═══════════════════ */}
-        <section className="animate-on-scroll mb-8">
-          <div className="rounded-2xl bg-gradient-to-br from-[#C8A84E]/20 to-[#C8A84E]/5 border border-[#C8A84E]/20 p-6 text-center">
-            <h2 className="text-lg font-bold text-white mb-2">
-              Готов зарабатывать на экспертности?
-            </h2>
-            <p className="text-sm text-white/60 mb-5">
-              Напиши &laquo;Разбор&raquo; — и я покажу, как выйти на 300 000 ₽ за 6 недель
-            </p>
-            <a
-              href={TG_LINK + "?text=%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#C8A84E] px-8 py-3.5 text-sm font-bold text-[#142E22] transition-all hover:bg-[#E8D5A0] pulse-gold"
-            >
-              <TelegramIcon className="w-5 h-5" />
-              Написать &laquo;Разбор&raquo;
-            </a>
-          </div>
-        </section>
+      {/* ════════ FINAL CTA ════════ */}
+      <section className="relative py-28 md:py-36 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#C8A55A]/[0.04] blur-[120px]" />
+          <div className="absolute top-[40%] left-[60%] w-[300px] h-[300px] rounded-full bg-[#6B5B95]/[0.02] blur-[90px]" />
+        </div>
 
-        {/* ═══════════════════ FOOTER ═══════════════════ */}
-        <footer className="text-center pb-4">
-          <div className="flex justify-center gap-6 mb-3">
-            <a
-              href={CHANNEL_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/30 hover:text-[#C8A84E] transition-colors text-xs"
-            >
-              Telegram-канал
-            </a>
-            <a
-              href={TG_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/30 hover:text-[#C8A84E] transition-colors text-xs"
-            >
-              Личные сообщения
-            </a>
-          </div>
-          <p className="text-white/15 text-[10px]">
-            &copy; {new Date().getFullYear()} Карина Мамедова. Все права защищены.
+        <Particles />
+
+        <div className="relative z-10 max-w-[600px] mx-auto px-6 text-center reveal">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-6">Следующий шаг</p>
+
+          <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-medium mb-5 leading-tight">
+            Готов зарабатывать<br />на&nbsp;экспертности?
+          </h2>
+          <p className="text-[15px] md:text-[16px] text-[#666] mb-12 max-w-[380px] mx-auto leading-relaxed">
+            Напиши &laquo;Разбор&raquo; — покажу, как выйти на&nbsp;300&nbsp;000&nbsp;₽ за&nbsp;6&nbsp;недель
           </p>
-        </footer>
-      </div>
 
-      {/* ─── GOLD BOTTOM LINE ─── */}
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#C8A84E]/50 to-transparent" />
-    </div>
+          <a href={TG + "?text=%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80"} target="_blank" rel="noopener noreferrer"
+            className="btn-sweep pulse-gold inline-flex items-center gap-3 h-[58px] px-12 rounded-xl bg-[#C8A55A] text-[16px] font-semibold text-[#0A0A0A] transition-all duration-200 hover:bg-[#D9BA6E] hover:-translate-y-0.5">
+            <TgIcon />
+            Написать &laquo;Разбор&raquo;
+          </a>
+          <p className="text-[12px] text-[#444] mt-5">Бесплатная консультация, без обязательств</p>
+        </div>
+      </section>
+
+      {/* ════════ FOOTER ════════ */}
+      <footer className="py-10">
+        {/* gradient line */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C8A55A]/20 to-transparent mb-10" />
+        <div className="max-w-[1000px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="font-display text-[14px] text-[#333] font-medium tracking-tight">Карина Мамедова</span>
+          <div className="flex gap-8">
+            <a href={CH} target="_blank" rel="noopener noreferrer" className="text-[12px] text-[#444] hover:text-[#C8A55A] transition-colors">Канал</a>
+            <a href={TG} target="_blank" rel="noopener noreferrer" className="text-[12px] text-[#444] hover:text-[#C8A55A] transition-colors">Написать</a>
+          </div>
+          <p className="text-[11px] text-[#333]">&copy; {new Date().getFullYear()}</p>
+        </div>
+      </footer>
+    </>
   );
 }

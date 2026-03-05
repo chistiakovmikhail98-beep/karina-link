@@ -286,7 +286,7 @@ const typeResults: Record<Category, TypeResult> = {
     key: "A",
     title: "Вечный студент",
     icon: "\uD83D\uDCDA",
-    color: "#C8A84E",
+    color: "#C8A55A",
     colorBg: "rgba(200, 168, 78, 0.15)",
     description:
       "Ты знаешь больше, чем 90% экспертов, но не применяешь. Каждый новый курс даёт иллюзию прогресса, но доход не растёт. Тебе не нужно больше знаний \u2014 тебе нужна система и действие.",
@@ -499,13 +499,13 @@ export default function DiagnosticPage() {
               <span className="text-white/40">
                 Вопрос {currentQuestion + 1} из {totalQuestions}
               </span>
-              <span className="text-[#C8A84E] font-medium">
+              <span className="text-[#C8A55A] font-medium">
                 {Math.round(progress)}%
               </span>
             </div>
             <div className="h-2 w-full rounded-full bg-white/5 overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-[#C8A84E] to-[#E8D5A0] transition-all duration-500 ease-out"
+                className="h-full rounded-full bg-gradient-to-r from-[#C8A55A] to-[#E8D5A0] transition-all duration-500 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -521,13 +521,13 @@ export default function DiagnosticPage() {
                 : "translate-x-0 opacity-100"
             }`}
           >
-            <div className="rounded-2xl border border-[#C8A84E]/15 bg-[#142E22]/80 backdrop-blur-sm p-5 sm:p-6">
+            <div className="glass-card rounded-2xl p-5 sm:p-6">
               {/* Question number badge */}
               <div className="flex items-center gap-2 mb-4">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#C8A84E]/15 text-[#C8A84E] text-sm font-bold">
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#C8A55A]/15 text-[#C8A55A] text-sm font-bold">
                   {question.id}
                 </span>
-                <div className="flex-1 h-[1px] bg-gradient-to-r from-[#C8A84E]/20 to-transparent" />
+                <div className="flex-1 h-[1px] bg-gradient-to-r from-[#C8A55A]/20 to-transparent" />
               </div>
 
               {/* Question text */}
@@ -548,17 +548,17 @@ export default function DiagnosticPage() {
                       disabled={selectedAnswer !== null}
                       className={`w-full text-left rounded-xl border px-4 py-3.5 text-sm transition-all duration-300 ${
                         isSelected
-                          ? "border-[#C8A84E] bg-[#C8A84E]/20 text-white shadow-[0_0_20px_rgba(200,168,78,0.15)] scale-[1.02]"
+                          ? "border-[#C8A55A] bg-[#C8A55A]/20 text-white shadow-[0_0_20px_rgba(200,168,78,0.15)] scale-[1.02]"
                           : wasPreviouslySelected
-                          ? "border-[#C8A84E]/30 bg-[#C8A84E]/10 text-white/90"
-                          : "border-white/10 bg-white/[0.03] text-white/70 hover:border-[#C8A84E]/30 hover:bg-[#C8A84E]/5 hover:text-white active:scale-[0.98]"
+                          ? "border-[#C8A55A]/30 bg-[#C8A55A]/10 text-white/90"
+                          : "border-white/10 bg-white/[0.03] text-white/70 hover:border-[#C8A55A]/30 hover:bg-[#C8A55A]/5 hover:text-white active:scale-[0.98]"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span
                           className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold transition-all duration-300 ${
                             isSelected
-                              ? "border-[#C8A84E] bg-[#C8A84E] text-[#142E22]"
+                              ? "border-[#C8A55A] bg-[#C8A55A] text-[#141414]"
                               : "border-white/20 text-white/40"
                           }`}
                         >
@@ -605,7 +605,7 @@ export default function DiagnosticPage() {
           }`}
         >
           {/* Main result card */}
-          <div className="rounded-2xl border border-[#C8A84E]/20 bg-[#142E22]/80 backdrop-blur-sm overflow-hidden">
+          <div className="rounded-2xl border border-[#C8A55A]/20 glass-card overflow-hidden">
             {/* Header with type icon and title */}
             <div
               className="p-6 text-center"
@@ -670,7 +670,7 @@ export default function DiagnosticPage() {
               <div>
                 <h3 className="flex items-center gap-2 text-sm font-bold text-white mb-3">
                   <svg
-                    className="w-4 h-4 text-[#C8A84E]"
+                    className="w-4 h-4 text-[#C8A55A]"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={2}
@@ -708,7 +708,7 @@ export default function DiagnosticPage() {
           </div>
 
           {/* Percentage breakdown */}
-          <div className="rounded-2xl border border-white/10 bg-[#142E22]/80 backdrop-blur-sm p-5 sm:p-6">
+          <div className="rounded-2xl border border-white/10 glass-card p-5 sm:p-6">
             <h3 className="text-sm font-bold text-white mb-4">
               Твой профиль по типам
             </h3>
@@ -731,7 +731,7 @@ export default function DiagnosticPage() {
                           {categoryLabels[cat]}
                         </span>
                         {isWinner && (
-                          <span className="inline-flex items-center rounded-full bg-[#C8A84E]/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#C8A84E]">
+                          <span className="inline-flex items-center rounded-full bg-[#C8A55A]/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#C8A55A]">
                             MAX
                           </span>
                         )}
@@ -764,10 +764,10 @@ export default function DiagnosticPage() {
           </div>
 
           {/* Program recommendation */}
-          <div className="rounded-2xl border border-[#C8A84E]/20 bg-gradient-to-br from-[#C8A84E]/10 to-[#C8A84E]/5 p-5 sm:p-6">
+          <div className="rounded-2xl border border-[#C8A55A]/20 bg-gradient-to-br from-[#C8A55A]/10 to-[#C8A55A]/5 p-5 sm:p-6">
             <div className="flex items-center gap-2 mb-3">
               <svg
-                className="w-5 h-5 text-[#C8A84E]"
+                className="w-5 h-5 text-[#C8A55A]"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
@@ -779,7 +779,7 @@ export default function DiagnosticPage() {
                   d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
                 />
               </svg>
-              <h3 className="text-sm font-bold text-[#C8A84E]">
+              <h3 className="text-sm font-bold text-[#C8A55A]">
                 Рекомендованная программа Карины
               </h3>
             </div>
@@ -790,7 +790,7 @@ export default function DiagnosticPage() {
               href={result.programLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#C8A84E] px-6 py-2.5 text-sm font-bold text-[#142E22] transition-all hover:bg-[#E8D5A0]"
+              className="inline-flex items-center gap-2 rounded-full bg-[#C8A55A] px-6 py-2.5 text-sm font-bold text-[#141414] transition-all hover:bg-[#E8D5A0]"
             >
               <svg
                 className="w-4 h-4"

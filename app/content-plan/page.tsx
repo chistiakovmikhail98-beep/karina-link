@@ -95,9 +95,9 @@ const POST_TYPE_CONFIG: Record<
   },
   selling: {
     label: "Продающий",
-    color: "text-[#C8A84E]",
-    bg: "bg-[#C8A84E]/15",
-    border: "border-l-[#C8A84E]",
+    color: "text-[#C8A55A]",
+    bg: "bg-[#C8A55A]/15",
+    border: "border-l-[#C8A55A]",
   },
   engagement: {
     label: "Вовлекающий",
@@ -1439,7 +1439,7 @@ export default function ContentPlanPage() {
         <select
           value={niche}
           onChange={(e) => setNiche(e.target.value)}
-          className="w-full rounded-xl border border-white/10 bg-[#142E22]/80 px-4 py-3 text-sm text-white outline-none transition focus:border-[#C8A84E]/50 focus:ring-1 focus:ring-[#C8A84E]/30 appearance-none"
+          className="w-full rounded-xl border border-white/10 bg-[#141414]/80 px-4 py-3 text-sm text-white outline-none transition focus:border-[#C8A55A]/50 focus:ring-1 focus:ring-[#C8A55A]/30 appearance-none"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C8A84E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
             backgroundRepeat: "no-repeat",
@@ -1462,7 +1462,7 @@ export default function ContentPlanPage() {
             value={customNiche}
             onChange={(e) => setCustomNiche(e.target.value)}
             placeholder="Укажи свою нишу"
-            className="mt-2 w-full rounded-xl border border-white/10 bg-[#142E22]/80 px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[#C8A84E]/50 focus:ring-1 focus:ring-[#C8A84E]/30"
+            className="mt-2 w-full rounded-xl border border-white/10 bg-[#141414]/80 px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[#C8A55A]/50 focus:ring-1 focus:ring-[#C8A55A]/30"
           />
         )}
       </div>
@@ -1477,7 +1477,7 @@ export default function ContentPlanPage() {
           onChange={(e) => setAudience(e.target.value)}
           placeholder="Опиши своего клиента: кто он, какая у него проблема?"
           rows={3}
-          className="w-full rounded-xl border border-white/10 bg-[#142E22]/80 px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[#C8A84E]/50 focus:ring-1 focus:ring-[#C8A84E]/30 resize-none"
+          className="w-full rounded-xl border border-white/10 bg-[#141414]/80 px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[#C8A55A]/50 focus:ring-1 focus:ring-[#C8A55A]/30 resize-none"
         />
       </div>
 
@@ -1491,7 +1491,7 @@ export default function ContentPlanPage() {
           onChange={(e) => setProduct(e.target.value)}
           placeholder="Консультация, курс, наставничество? Какой результат получит клиент?"
           rows={3}
-          className="w-full rounded-xl border border-white/10 bg-[#142E22]/80 px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[#C8A84E]/50 focus:ring-1 focus:ring-[#C8A84E]/30 resize-none"
+          className="w-full rounded-xl border border-white/10 bg-[#141414]/80 px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition focus:border-[#C8A55A]/50 focus:ring-1 focus:ring-[#C8A55A]/30 resize-none"
         />
       </div>
 
@@ -1507,13 +1507,13 @@ export default function ContentPlanPage() {
               onClick={() => setGoal(g.id)}
               className={`relative rounded-xl border p-3 text-left transition-all duration-200 ${
                 goal === g.id
-                  ? "border-[#C8A84E]/60 bg-[#C8A84E]/10 shadow-[0_0_15px_rgba(200,168,78,0.1)]"
-                  : "border-white/10 bg-[#142E22]/60 hover:border-white/20"
+                  ? "border-[#C8A55A]/60 bg-[#C8A55A]/10 shadow-[0_0_15px_rgba(200,168,78,0.1)]"
+                  : "border-white/10 bg-[#141414]/60 hover:border-white/20"
               }`}
             >
               <div
                 className={`mb-1.5 ${
-                  goal === g.id ? "text-[#C8A84E]" : "text-white/40"
+                  goal === g.id ? "text-[#C8A55A]" : "text-white/40"
                 } transition-colors`}
               >
                 <GoalIcon type={g.icon} className="w-5 h-5" />
@@ -1529,9 +1529,9 @@ export default function ContentPlanPage() {
                 {g.desc}
               </div>
               {goal === g.id && (
-                <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#C8A84E] flex items-center justify-center">
+                <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#C8A55A] flex items-center justify-center">
                   <svg
-                    className="w-2.5 h-2.5 text-[#142E22]"
+                    className="w-2.5 h-2.5 text-[#141414]"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={3}
@@ -1556,7 +1556,7 @@ export default function ContentPlanPage() {
         disabled={!canSubmit}
         className={`w-full rounded-xl py-3.5 text-sm font-bold transition-all duration-300 ${
           canSubmit
-            ? "bg-[#C8A84E] text-[#142E22] hover:bg-[#E8D5A0] hover:shadow-[0_0_25px_rgba(200,168,78,0.3)] active:scale-[0.98]"
+            ? "bg-[#C8A55A] text-[#141414] hover:bg-[#E8D5A0] hover:shadow-[0_0_25px_rgba(200,168,78,0.3)] active:scale-[0.98]"
             : "bg-white/5 text-white/20 cursor-not-allowed"
         }`}
       >
@@ -1589,11 +1589,11 @@ export default function ContentPlanPage() {
       {/* Spinner */}
       <div className="relative w-16 h-16 mb-6">
         <div className="absolute inset-0 rounded-full border-2 border-white/5" />
-        <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#C8A84E] animate-spin" />
+        <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#C8A55A] animate-spin" />
         <div className="absolute inset-3 rounded-full border-2 border-transparent border-b-[#E8D5A0] animate-spin [animation-direction:reverse] [animation-duration:1.5s]" />
         <div className="absolute inset-0 flex items-center justify-center">
           <svg
-            className="w-5 h-5 text-[#C8A84E]"
+            className="w-5 h-5 text-[#C8A55A]"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
@@ -1625,18 +1625,18 @@ export default function ContentPlanPage() {
               key={i}
               className={`flex items-center gap-3 rounded-xl border px-4 py-3 transition-all duration-500 ${
                 isDone
-                  ? "border-[#C8A84E]/30 bg-[#C8A84E]/10"
+                  ? "border-[#C8A55A]/30 bg-[#C8A55A]/10"
                   : isActive
-                  ? "border-[#C8A84E]/20 bg-[#142E22]/80 animate-pulse"
-                  : "border-white/5 bg-[#142E22]/40"
+                  ? "border-[#C8A55A]/20 bg-[#141414]/80 animate-pulse"
+                  : "border-white/5 bg-[#141414]/40"
               }`}
             >
               <div
                 className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-all duration-500 ${
                   isDone
-                    ? "bg-[#C8A84E] text-[#142E22]"
+                    ? "bg-[#C8A55A] text-[#141414]"
                     : isActive
-                    ? "bg-[#C8A84E]/20 text-[#C8A84E]"
+                    ? "bg-[#C8A55A]/20 text-[#C8A55A]"
                     : "bg-white/5 text-white/20"
                 }`}
               >
@@ -1669,7 +1669,7 @@ export default function ContentPlanPage() {
                 <div
                   className={`text-[10px] transition-colors duration-500 ${
                     isDone
-                      ? "text-[#C8A84E]/70"
+                      ? "text-[#C8A55A]/70"
                       : isActive
                       ? "text-white/40"
                       : "text-white/15"
@@ -1692,10 +1692,10 @@ export default function ContentPlanPage() {
   const renderResults = () => (
     <div className="animate-[fadeIn_0.5s_ease]">
       {/* Summary header */}
-      <div className="rounded-xl border border-[#C8A84E]/20 bg-[#C8A84E]/5 p-4 mb-5">
+      <div className="rounded-xl border border-[#C8A55A]/20 bg-[#C8A55A]/5 p-4 mb-5">
         <div className="flex items-center gap-2 mb-2">
           <svg
-            className="w-4 h-4 text-[#C8A84E]"
+            className="w-4 h-4 text-[#C8A55A]"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
@@ -1707,7 +1707,7 @@ export default function ContentPlanPage() {
               d="m4.5 12.75 6 6 9-13.5"
             />
           </svg>
-          <span className="text-sm font-bold text-[#C8A84E]">
+          <span className="text-sm font-bold text-[#C8A55A]">
             План готов!
           </span>
         </div>
@@ -1735,7 +1735,7 @@ export default function ContentPlanPage() {
             onClick={() => setActiveWeek(i)}
             className={`shrink-0 rounded-lg px-3 py-2 text-xs font-semibold transition-all duration-200 ${
               activeWeek === i
-                ? "bg-[#C8A84E] text-[#142E22] shadow-[0_0_12px_rgba(200,168,78,0.2)]"
+                ? "bg-[#C8A55A] text-[#141414] shadow-[0_0_12px_rgba(200,168,78,0.2)]"
                 : "bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/70"
             }`}
           >
@@ -1746,11 +1746,11 @@ export default function ContentPlanPage() {
 
       {/* Week subtitle */}
       <div className="flex items-center gap-2 mb-3">
-        <div className="h-px flex-1 bg-gradient-to-r from-[#C8A84E]/30 to-transparent" />
-        <span className="text-xs font-medium text-[#C8A84E]/70 shrink-0">
+        <div className="h-px flex-1 bg-gradient-to-r from-[#C8A55A]/30 to-transparent" />
+        <span className="text-xs font-medium text-[#C8A55A]/70 shrink-0">
           {WEEK_LABELS[activeWeek].subtitle}
         </span>
-        <div className="h-px flex-1 bg-gradient-to-l from-[#C8A84E]/30 to-transparent" />
+        <div className="h-px flex-1 bg-gradient-to-l from-[#C8A55A]/30 to-transparent" />
       </div>
 
       {/* Day cards */}
@@ -1760,7 +1760,7 @@ export default function ContentPlanPage() {
           return (
             <div
               key={day.day}
-              className={`rounded-xl border border-white/8 bg-[#142E22]/70 overflow-hidden transition-all duration-300 hover:border-white/15 hover:bg-[#142E22]/90`}
+              className={`rounded-xl border border-white/8 bg-[#141414]/70 overflow-hidden transition-all duration-300 hover:border-white/15 hover:bg-[#141414]/90`}
               style={{
                 animationDelay: `${idx * 80}ms`,
                 animation: "fadeSlideUp 0.4s ease forwards",
@@ -1813,7 +1813,7 @@ export default function ContentPlanPage() {
                 {/* CTA */}
                 <div className="flex items-start gap-1.5 rounded-lg bg-white/3 px-2.5 py-2">
                   <svg
-                    className="w-3 h-3 shrink-0 mt-0.5 text-[#C8A84E]/60"
+                    className="w-3 h-3 shrink-0 mt-0.5 text-[#C8A55A]/60"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={2}
@@ -1838,7 +1838,7 @@ export default function ContentPlanPage() {
       {/* Extras toggle */}
       <button
         onClick={() => setShowExtras(!showExtras)}
-        className="w-full flex items-center justify-between rounded-xl border border-white/10 bg-[#142E22]/60 px-4 py-3 mb-3 transition hover:border-[#C8A84E]/20"
+        className="w-full flex items-center justify-between rounded-xl border border-white/10 bg-[#141414]/60 px-4 py-3 mb-3 transition hover:border-[#C8A55A]/20"
       >
         <span className="text-sm font-semibold text-white/70">
           Бонус: идеи для Reels и эфиров
@@ -1863,7 +1863,7 @@ export default function ContentPlanPage() {
       {showExtras && plan && (
         <div className="space-y-4 mb-5 animate-[fadeIn_0.3s_ease]">
           {/* Reels */}
-          <div className="rounded-xl border border-white/8 bg-[#142E22]/60 p-4">
+          <div className="rounded-xl border border-white/8 bg-[#141414]/60 p-4">
             <div className="flex items-center gap-2 mb-3">
               <svg
                 className="w-4 h-4 text-pink-400"
@@ -1898,7 +1898,7 @@ export default function ContentPlanPage() {
           </div>
 
           {/* Lives */}
-          <div className="rounded-xl border border-white/8 bg-[#142E22]/60 p-4">
+          <div className="rounded-xl border border-white/8 bg-[#141414]/60 p-4">
             <div className="flex items-center gap-2 mb-3">
               <svg
                 className="w-4 h-4 text-red-400"
@@ -1941,7 +1941,7 @@ export default function ContentPlanPage() {
           className={`flex-1 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold transition-all duration-300 ${
             copied
               ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
-              : "bg-[#C8A84E] text-[#142E22] hover:bg-[#E8D5A0]"
+              : "bg-[#C8A55A] text-[#141414] hover:bg-[#E8D5A0]"
           }`}
         >
           {copied ? (
@@ -2008,27 +2008,6 @@ export default function ContentPlanPage() {
 
   return (
     <>
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        select option {
-          background: #142E22;
-          color: #fff;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
       <ToolLayout
         title="Контент-план 30 дней"
         subtitle="AI-генератор контент-стратегии для экспертов"
