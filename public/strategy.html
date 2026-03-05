@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Стратегия роста для экспертов — Карина Мамедова</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --dark-green: #1B3C2D;
+  --gold: #C8A84E;
+  --light-gold: #E8D5A0;
+  --white: #FFFFFF;
+  --dark: #142E22;
+  --bg-light: #F8F6F1;
+  --text-muted: #5A7A6A;
+  --border-light: #E0D8C8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #2D2D2D;
+  line-height: 1.6;
+  background: #E8E4DD;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 20px auto;
+  background: var(--white);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* ========== PAGE 1: COVER ========== */
+.cover {
+  background: var(--dark-green);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 50px;
+  position: relative;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 2px solid var(--gold);
+  pointer-events: none;
+}
+
+.cover::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+  border: 1px solid rgba(200, 168, 78, 0.3);
+  pointer-events: none;
+}
+
+.cover-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: var(--gold);
+  border-style: solid;
+}
+
+.cover-corner.tl { top: 14px; left: 14px; border-width: 3px 0 0 3px; }
+.cover-corner.tr { top: 14px; right: 14px; border-width: 3px 3px 0 0; }
+.cover-corner.bl { bottom: 14px; left: 14px; border-width: 0 0 3px 3px; }
+.cover-corner.br { bottom: 14px; right: 14px; border-width: 0 3px 3px 0; }
+
+.cover-top-accent {
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
+  margin-bottom: 40px;
+}
+
+.cover-icon {
+  width: 70px;
+  height: 70px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.cover-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--gold);
+}
+
+.cover-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+
+.cover h1 {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.cover-subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--light-gold);
+  margin-bottom: 50px;
+  letter-spacing: 0.5px;
+}
+
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin-bottom: 50px;
+}
+
+.cover-author {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1px;
+}
+
+.cover-author strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cover-year {
+  position: absolute;
+  bottom: 40px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 3px;
+}
+
+/* ========== PAGE LAYOUT ========== */
+.page-inner {
+  padding: 50px 50px 60px;
+  min-height: 297mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 35px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--dark-green);
+}
+
+.page-number {
+  width: 36px;
+  height: 36px;
+  background: var(--dark-green);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--dark-green);
+  letter-spacing: -0.3px;
+}
+
+.page-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.page-footer-brand {
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+/* ========== PAGE 2: TABLE OF CONTENTS ========== */
+.toc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.toc-intro {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+.toc-list {
+  list-style: none;
+}
+
+.toc-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(27, 60, 45, 0.08);
+  transition: background 0.2s;
+}
+
+.toc-item:last-child {
+  border-bottom: none;
+}
+
+.toc-num {
+  width: 44px;
+  height: 44px;
+  background: var(--dark-green);
+  color: var(--gold);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.toc-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark);
+  flex: 1;
+}
+
+.toc-dots {
+  flex: 1;
+  border-bottom: 2px dotted var(--border-light);
+  margin: 0 16px;
+  min-width: 40px;
+}
+
+.toc-page {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 24px;
+  text-align: right;
+}
+
+/* ========== PAGE 3: MARKET ========== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 18px 20px;
+  border-left: 4px solid var(--gold);
+  position: relative;
+}
+
+.stat-card.wide {
+  grid-column: 1 / -1;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--dark-green);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.stat-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+.badge-green {
+  background: rgba(27, 60, 45, 0.1);
+  color: var(--dark-green);
+}
+
+.badge-red {
+  background: rgba(200, 50, 50, 0.1);
+  color: #C03232;
+}
+
+.badge-orange {
+  background: rgba(200, 140, 30, 0.1);
+  color: #B08020;
+}
+
+.insight-section {
+  background: var(--dark-green);
+  border-radius: 14px;
+  padding: 28px 30px;
+  color: var(--white);
+}
+
+.insight-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.insight-title::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background: var(--gold);
+}
+
+.insight-list {
+  list-style: none;
+}
+
+.insight-list li {
+  padding: 10px 0;
+  padding-left: 22px;
+  position: relative;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.88);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.insight-list li:last-child {
+  border-bottom: none;
+}
+
+.insight-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 17px;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+/* ========== PAGE 4: PAIN POINTS ========== */
+.pain-intro {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.pain-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pain-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg-light);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.pain-item:hover {
+  border-color: var(--light-gold);
+}
+
+.pain-num {
+  width: 32px;
+  height: 32px;
+  background: var(--dark-green);
+  color: var(--gold);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pain-content {
+  flex: 1;
+}
+
+.pain-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+
+.pain-desc {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ========== PAGE 5: DESIRES ========== */
+.desires-intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.desires-intro p {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.desires-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+}
+
+.desire-card {
+  border-radius: 14px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.desire-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gold);
+}
+
+.desire-card.income {
+  background: linear-gradient(135deg, #1B3C2D 0%, #244A38 100%);
+  color: var(--white);
+}
+
+.desire-card.freedom {
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+}
+
+.desire-card.recognition {
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+}
+
+.desire-card.system {
+  background: linear-gradient(135deg, #1B3C2D 0%, #244A38 100%);
+  color: var(--white);
+}
+
+.desire-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.desire-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: -0.2px;
+}
+
+.desire-card.income .desire-title,
+.desire-card.system .desire-title {
+  color: var(--gold);
+}
+
+.desire-card.freedom .desire-title,
+.desire-card.recognition .desire-title {
+  color: var(--dark-green);
+}
+
+.desire-list {
+  list-style: none;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.desire-list li {
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.desire-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.desire-card.income .desire-list li::before,
+.desire-card.system .desire-list li::before {
+  background: var(--gold);
+}
+
+.desire-card.freedom .desire-list li::before,
+.desire-card.recognition .desire-list li::before {
+  background: var(--dark-green);
+}
+
+.desire-card.income .desire-list li,
+.desire-card.system .desire-list li {
+  color: rgba(255,255,255,0.85);
+}
+
+.desire-card.freedom .desire-list li,
+.desire-card.recognition .desire-list li {
+  color: var(--text-muted);
+}
+
+/* ========== PAGE 6: AI TOOLS ========== */
+.tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.tool-card {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 18px;
+  background: var(--bg-light);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+}
+
+.tool-num {
+  width: 36px;
+  height: 36px;
+  background: var(--dark-green);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tool-info {
+  flex: 1;
+}
+
+.tool-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+
+.tool-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.tool-arrow {
+  color: var(--gold);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 6px;
+}
+
+.tool-product {
+  text-align: right;
+}
+
+.tool-product-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.tool-product-price {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.funnel-section {
+  background: var(--dark-green);
+  border-radius: 14px;
+  padding: 24px 28px;
+}
+
+.funnel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.funnel-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+.funnel-step {
+  text-align: center;
+  flex: 1;
+  max-width: 110px;
+}
+
+.funnel-step-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.funnel-step-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.funnel-step:not(:last-child) .funnel-step-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: calc(100% + 50px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), rgba(200,168,78,0.3));
+  transform: translateY(-50%);
+}
+
+.funnel-arrow {
+  color: var(--gold);
+  font-size: 16px;
+  font-weight: 300;
+  flex-shrink: 0;
+  margin: 14px 2px 0;
+}
+
+/* ========== PAGE 7: CLIENT STRATEGY ========== */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+}
+
+.strategy-card {
+  background: var(--white);
+  border-radius: 14px;
+  border: 2px solid var(--border-light);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.strategy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.strategy-card.organic::before { background: #2D8B5A; }
+.strategy-card.partners::before { background: var(--gold); }
+.strategy-card.paid::before { background: #5A3E8B; }
+
+.strategy-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.strategy-card.organic .strategy-card-icon { background: rgba(45, 139, 90, 0.1); }
+.strategy-card.partners .strategy-card-icon { background: rgba(200, 168, 78, 0.15); }
+.strategy-card.paid .strategy-card-icon { background: rgba(90, 62, 139, 0.1); }
+
+.strategy-card-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 14px;
+}
+
+.strategy-flow {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.strategy-flow span {
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.strategy-goal {
+  background: var(--dark-green);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.strategy-goal strong {
+  color: var(--gold);
+}
+
+/* ========== PAGE 8: PRODUCT LINE ========== */
+.ladder {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 30px;
+}
+
+.ladder::before {
+  content: '';
+  position: absolute;
+  left: 44px;
+  top: 20px;
+  bottom: 20px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--light-gold), var(--gold), var(--dark-green));
+  border-radius: 2px;
+}
+
+.ladder-step {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  position: relative;
+  padding: 8px 0;
+}
+
+.ladder-marker {
+  position: relative;
+  z-index: 2;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ladder-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  background: var(--white);
+}
+
+.ladder-step.active .ladder-dot {
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(200, 168, 78, 0.2);
+}
+
+.ladder-card {
+  flex: 1;
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 18px 22px;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ladder-step.active .ladder-card {
+  background: var(--dark-green);
+  border-color: var(--dark-green);
+}
+
+.ladder-price {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--gold);
+  white-space: nowrap;
+  min-width: 90px;
+}
+
+.ladder-step.active .ladder-price {
+  color: var(--gold);
+}
+
+.ladder-info {
+  flex: 1;
+}
+
+.ladder-product {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+
+.ladder-step.active .ladder-product {
+  color: var(--white);
+}
+
+.ladder-details {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.ladder-step.active .ladder-details {
+  color: rgba(255,255,255,0.6);
+}
+
+.ladder-tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.tag-free { background: rgba(45,139,90,0.1); color: #2D8B5A; }
+.tag-entry { background: rgba(200,168,78,0.15); color: var(--gold); }
+.tag-mid { background: rgba(200,168,78,0.2); color: #A08030; }
+.tag-flag { background: var(--gold); color: var(--white); }
+.tag-premium { background: rgba(90,62,139,0.1); color: #5A3E8B; }
+.tag-vip { background: var(--gold); color: var(--dark); }
+
+/* ========== PAGE 9: ROADMAP ========== */
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.roadmap-month {
+  background: var(--bg-light);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.roadmap-month-header {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.roadmap-month.m1 .roadmap-month-header { background: linear-gradient(135deg, #1B3C2D, #244A38); }
+.roadmap-month.m2 .roadmap-month-header { background: linear-gradient(135deg, #2A5A40, #347A50); }
+.roadmap-month.m3 .roadmap-month-header { background: linear-gradient(135deg, #C8A84E, #B09030); }
+
+.roadmap-month-num {
+  font-size: 28px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.2);
+  line-height: 1;
+}
+
+.roadmap-month-info {
+  flex: 1;
+}
+
+.roadmap-month-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.roadmap-month-period {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+}
+
+.roadmap-month-body {
+  padding: 18px 24px;
+}
+
+.roadmap-tasks {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+}
+
+.roadmap-task {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  color: #444;
+  line-height: 1.5;
+  padding: 6px 0;
+}
+
+.roadmap-check {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roadmap-goal {
+  grid-column: 1 / -1;
+  background: var(--dark-green);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.roadmap-goal strong {
+  color: var(--gold);
+}
+
+/* ========== LAST PAGE: FOOTER ========== */
+.final-page {
+  background: var(--dark-green);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 50px;
+  position: relative;
+}
+
+.final-page::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid rgba(200, 168, 78, 0.25);
+  pointer-events: none;
+}
+
+.final-divider-top {
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin-bottom: 50px;
+}
+
+.final-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.final-name {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.final-handle {
+  font-size: 16px;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.final-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin-bottom: 40px;
+}
+
+.final-url {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 400;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+}
+
+.final-tagline {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 2px;
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html, body {
+    background: white !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+    page-break-inside: avoid;
+    border-radius: 0;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+  }
+
+  .page-inner {
+    min-height: 100vh;
+  }
+
+  .pain-item:hover {
+    border-color: transparent;
+  }
+}
+
+/* ========== SCREEN REFINEMENTS ========== */
+@media screen {
+  .page {
+    border-radius: 4px;
+  }
+
+  .page + .page {
+    margin-top: 30px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page cover">
+  <div class="cover-corner tl"></div>
+  <div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div>
+  <div class="cover-corner br"></div>
+
+  <div class="cover-top-accent"></div>
+
+  <div class="cover-icon">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    </svg>
+  </div>
+
+  <div class="cover-label">Стратегический документ</div>
+
+  <h1>СТРАТЕГИЯ РОСТА<br>ДЛЯ ЭКСПЕРТОВ</h1>
+
+  <p class="cover-subtitle">Как превращать знания в деньги в 2025-2026</p>
+
+  <div class="cover-divider"></div>
+
+  <p class="cover-author">Подготовлено: <strong>Карина Мамедова</strong> | Деньги на экспертности</p>
+
+  <div class="cover-year">2025 &mdash; 2026</div>
+</div>
+
+<!-- ==================== PAGE 2: TABLE OF CONTENTS ==================== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-number">i</div>
+      <div class="page-title">Содержание</div>
+    </div>
+
+    <div class="toc">
+      <p class="toc-intro">Этот документ содержит аналитику рынка, карту болей и желаний целевой аудитории, стратегию привлечения клиентов через AI-инструменты и пошаговый план на 90 дней.</p>
+
+      <ul class="toc-list">
+        <li class="toc-item">
+          <div class="toc-num">01</div>
+          <span class="toc-text">Рынок: что происходит</span>
+          <span class="toc-dots"></span>
+          <span class="toc-page">3</span>
+        </li>
+        <li class="toc-item">
+          <div class="toc-num">02</div>
+          <span class="toc-text">10 главных болей экспертов</span>
+          <span class="toc-dots"></span>
+          <span class="toc-page">4</span>
+        </li>
+        <li class="toc-item">
+          <div class="toc-num">03</div>
+          <span class="toc-text">Чего хотят эксперты</span>
+          <span class="toc-dots"></span>
+          <span class="toc-page">5</span>
+        </li>
+        <li class="toc-item">
+          <div class="toc-num">04</div>
+          <span class="toc-text">5 AI-инструментов как лид-магниты</span>
+          <span class="toc-dots"></span>
+          <span class="toc-page">6</span>
+        </li>
+        <li class="toc-item">
+          <div class="toc-num">05</div>
+          <span class="toc-text">Стратегия привлечения клиентов</span>
+          <span class="toc-dots"></span>
+          <span class="toc-page">7</span>
+        </li>
+        <li class="toc-item">
+          <div class="toc-num">06</div>
+          <span class="toc-text">Продуктовая линейка</span>
+          <span class="toc-dots"></span>
+          <span class="toc-page">8</span>
+        </li>
+        <li class="toc-item">
+          <div class="toc-num">07</div>
+          <span class="toc-text">Дорожная карта на 90 дней</span>
+          <span class="toc-dots"></span>
+          <span class="toc-page">9</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-brand">Карина Мамедова | Деньги на экспертности</span>
+      <span>ii</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 3: MARKET ==================== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-number">01</div>
+      <div class="page-title">Рынок: что происходит</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">154 млрд руб.<span class="stat-badge badge-green">+12%</span></div>
+        <div class="stat-label">Рынок EdTech России в 2025</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">-5% YoY<span class="stat-badge badge-red">&#9660;</span></div>
+        <div class="stat-label">Выручка инфобиза на GetCourse</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">-5% / -7%<span class="stat-badge badge-red">&#9660;</span></div>
+        <div class="stat-label">Трафик / Лиды</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">55-58%<span class="stat-badge badge-green">&#9650;</span></div>
+        <div class="stat-label">Продаж — повторные покупки</div>
+      </div>
+      <div class="stat-card wide">
+        <div class="stat-value">Cooling period с 01.09.2025<span class="stat-badge badge-orange">NEW</span></div>
+        <div class="stat-label">4ч для покупок 50-200K руб. | 48ч для покупок свыше 200K руб.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">84.9%<span class="stat-badge badge-orange">!</span></div>
+        <div class="stat-label">Маркетологов испытывают синдром самозванца</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">91.9%<span class="stat-badge badge-green">AI</span></div>
+        <div class="stat-label">Креаторов уже используют AI</div>
+      </div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-title">Что это значит</div>
+      <ul class="insight-list">
+        <li><strong style="color: var(--gold);">Рынок в коррекции, не в кризисе.</strong> Слабые игроки уходят, сильные растут. Это окно возможностей для тех, кто выстроит систему.</li>
+        <li><strong style="color: var(--gold);">Импульсные продажи через кредиты умирают.</strong> Cooling period убивает тактику давления. Побеждает ценностная продажа.</li>
+        <li><strong style="color: var(--gold);">Retention важнее acquisition.</strong> 55-58% продаж — повторные покупки. Фокус на LTV и продуктовую линейку.</li>
+      </ul>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-brand">Карина Мамедова | Деньги на экспертности</span>
+      <span>3</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 4: PAIN POINTS ==================== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-number">02</div>
+      <div class="page-title">10 главных болей экспертов</div>
+    </div>
+
+    <p class="pain-intro">Исследование целевой аудитории выявило 10 ключевых болей, которые мешают экспертам монетизировать свои знания и выйти на стабильный доход.</p>
+
+    <ul class="pain-list">
+      <li class="pain-item">
+        <div class="pain-num">1</div>
+        <div class="pain-content">
+          <div class="pain-name">&#171;Знаю, но не делаю&#187;</div>
+          <div class="pain-desc">Прокрастинация и бездействие парализуют рост</div>
+        </div>
+      </li>
+      <li class="pain-item">
+        <div class="pain-num">2</div>
+        <div class="pain-content">
+          <div class="pain-name">Синдром самозванца</div>
+          <div class="pain-desc">&#171;Кто я такой, чтобы брать дорого?&#187; — обесценивание экспертизы</div>
+        </div>
+      </li>
+      <li class="pain-item">
+        <div class="pain-num">3</div>
+        <div class="pain-content">
+          <div class="pain-name">Хаос вместо системы</div>
+          <div class="pain-desc">Нет воронки, нет плана, каждый месяц начинается с нуля</div>
+        </div>
+      </li>
+      <li class="pain-item">
+        <div class="pain-num">4</div>
+        <div class="pain-content">
+          <div class="pain-name">Страх продаж</div>
+          <div class="pain-desc">Приравнивают продажу к впариванию, стесняются предлагать</div>
+        </div>
+      </li>
+      <li class="pain-item">
+        <div class="pain-num">5</div>
+        <div class="pain-content">
+          <div class="pain-name">Нестабильный доход</div>
+          <div class="pain-desc">То 200К, то 50К, то 0 — американские горки без предсказуемости</div>
+        </div>
+      </li>
+      <li class="pain-item">
+        <div class="pain-num">6</div>
+        <div class="pain-content">
+          <div class="pain-name">Вечный студент</div>
+          <div class="pain-desc">Бесконечные курсы без результата, потраченные сотни тысяч на обучение</div>
+        </div>
+      </li>
+      <li class="pain-item">
+        <div class="pain-num">7</div>
+        <div class="pain-content">
+          <div class="pain-name">Слабый оффер</div>
+          <div class="pain-desc">Аудитория не понимает, что покупать и почему именно сейчас</div>
+        </div>
+      </li>
+      <li class="pain-item">
+        <div class="pain-num">8</div>
+        <div class="pain-content">
+          <div class="pain-name">Страх проявленности</div>
+          <div class="pain-desc">Боятся камеры, публичных выступлений и хейта</div>
+        </div>
+      </li>
+      <li class="pain-item">
+        <div class="pain-num">9</div>
+        <div class="pain-content">
+          <div class="pain-name">Нет делегирования</div>
+          <div class="pain-desc">Всё сам, 24/7 в работе, выгорание неизбежно</div>
+        </div>
+      </li>
+      <li class="pain-item">
+        <div class="pain-num">10</div>
+        <div class="pain-content">
+          <div class="pain-name">Контент без продаж</div>
+          <div class="pain-desc">Лайки есть, подписчики растут — а заявок и денег нет</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="page-footer">
+      <span class="page-footer-brand">Карина Мамедова | Деньги на экспертности</span>
+      <span>4</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 5: DESIRES ==================== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-number">03</div>
+      <div class="page-title">Чего хотят эксперты</div>
+    </div>
+
+    <div class="desires-intro">
+      <p>Карта желаний эксперта: четыре ключевых вектора, которые определяют все решения о покупке</p>
+    </div>
+
+    <div class="desires-grid">
+      <div class="desire-card income">
+        <span class="desire-icon">&#128176;</span>
+        <div class="desire-title">ДОХОД</div>
+        <ul class="desire-list">
+          <li>Стабильные 300К &ndash; 1М в месяц</li>
+          <li>Предсказуемость и повторяемость</li>
+          <li>Не зависеть от одного запуска</li>
+          <li>Несколько источников дохода</li>
+        </ul>
+      </div>
+
+      <div class="desire-card freedom">
+        <span class="desire-icon">&#9992;&#65039;</span>
+        <div class="desire-title">СВОБОДА</div>
+        <ul class="desire-list">
+          <li>Работать из любой точки мира</li>
+          <li>4-5 часов продуктивной работы</li>
+          <li>Не выгорать, не пахать 24/7</li>
+          <li>Время на семью и себя</li>
+        </ul>
+      </div>
+
+      <div class="desire-card recognition">
+        <span class="desire-icon">&#127942;</span>
+        <div class="desire-title">ПРИЗНАНИЕ</div>
+        <ul class="desire-list">
+          <li>Сильный личный бренд</li>
+          <li>Приглашения на подкасты и события</li>
+          <li>Авторитетный статус в нише</li>
+          <li>Кейсы и отзывы учеников</li>
+        </ul>
+      </div>
+
+      <div class="desire-card system">
+        <span class="desire-icon">&#9881;&#65039;</span>
+        <div class="desire-title">СИСТЕМА</div>
+        <ul class="desire-list">
+          <li>Работающая автоворонка</li>
+          <li>Команда, которая разгружает</li>
+          <li>Пассивный и полупассивный доход</li>
+          <li>Бизнес, а не самозанятость</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-brand">Карина Мамедова | Деньги на экспертности</span>
+      <span>5</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 6: AI TOOLS ==================== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-number">04</div>
+      <div class="page-title">5 AI-инструментов как лид-магниты</div>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-num">1</div>
+        <div class="tool-info">
+          <div class="tool-name">Сканер суперсилы</div>
+          <div class="tool-desc">Определяет уникальное позиционирование эксперта</div>
+        </div>
+        <span class="tool-arrow">&rarr;</span>
+        <div class="tool-product">
+          <div class="tool-product-name">Распаковка</div>
+          <div class="tool-product-price">5 000 руб.</div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-num">2</div>
+        <div class="tool-info">
+          <div class="tool-name">Аудит оффера</div>
+          <div class="tool-desc">Анализирует и оценивает текущий оффер</div>
+        </div>
+        <span class="tool-arrow">&rarr;</span>
+        <div class="tool-product">
+          <div class="tool-product-name">Консультация по офферам</div>
+          <div class="tool-product-price">10 000 руб.</div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-num">3</div>
+        <div class="tool-info">
+          <div class="tool-name">Калькулятор запуска</div>
+          <div class="tool-desc">Просчитывает экономику запуска продукта</div>
+        </div>
+        <span class="tool-arrow">&rarr;</span>
+        <div class="tool-product">
+          <div class="tool-product-name">Формула САМОзапуска</div>
+          <div class="tool-product-price">150 000 руб.</div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-num">4</div>
+        <div class="tool-info">
+          <div class="tool-name">Диагностика эксперта</div>
+          <div class="tool-desc">Комплексный аудит точки А эксперта</div>
+        </div>
+        <span class="tool-arrow">&rarr;</span>
+        <div class="tool-product">
+          <div class="tool-product-name">Наставничество</div>
+          <div class="tool-product-price">от 200 000 руб.</div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-num">5</div>
+        <div class="tool-info">
+          <div class="tool-name">Контент-план 30 дней</div>
+          <div class="tool-desc">Генерирует персональный контент-план</div>
+        </div>
+        <span class="tool-arrow">&rarr;</span>
+        <div class="tool-product">
+          <div class="tool-product-name">Стратегический аудит</div>
+          <div class="tool-product-price">150 000 руб.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-section">
+      <div class="funnel-title">Воронка конверсии</div>
+      <div class="funnel-steps">
+        <div class="funnel-step">
+          <div class="funnel-step-label">Трафик</div>
+          <div class="funnel-step-dot"></div>
+        </div>
+        <span class="funnel-arrow">&rsaquo;</span>
+        <div class="funnel-step">
+          <div class="funnel-step-label">Бесплатный инструмент</div>
+          <div class="funnel-step-dot"></div>
+        </div>
+        <span class="funnel-arrow">&rsaquo;</span>
+        <div class="funnel-step">
+          <div class="funnel-step-label">Персональный результат</div>
+          <div class="funnel-step-dot"></div>
+        </div>
+        <span class="funnel-arrow">&rsaquo;</span>
+        <div class="funnel-step">
+          <div class="funnel-step-label">Мост к продукту</div>
+          <div class="funnel-step-dot"></div>
+        </div>
+        <span class="funnel-arrow">&rsaquo;</span>
+        <div class="funnel-step">
+          <div class="funnel-step-label">Разбор</div>
+          <div class="funnel-step-dot"></div>
+        </div>
+        <span class="funnel-arrow">&rsaquo;</span>
+        <div class="funnel-step">
+          <div class="funnel-step-label">Продажа</div>
+          <div class="funnel-step-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-brand">Карина Мамедова | Деньги на экспертности</span>
+      <span>6</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 7: CLIENT STRATEGY ==================== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-number">05</div>
+      <div class="page-title">Стратегия привлечения клиентов</div>
+    </div>
+
+    <div class="strategy-grid">
+      <div class="strategy-card organic">
+        <div class="strategy-card-icon">&#127909;</div>
+        <div class="strategy-card-title">ОРГАНИКА</div>
+        <div class="strategy-flow">
+          <span>Reels / TikTok</span><br>
+          &darr;<br>
+          <span>Ссылка на инструмент</span><br>
+          &darr;<br>
+          <span>Результат</span><br>
+          &darr;<br>
+          <span>CTA в Telegram</span>
+        </div>
+        <div class="strategy-goal">Цель: <strong>50-100 лидов/день</strong></div>
+      </div>
+
+      <div class="strategy-card partners">
+        <div class="strategy-card-icon">&#129309;</div>
+        <div class="strategy-card-title">ПАРТНЁРСТВА</div>
+        <div class="strategy-flow">
+          <span>Взаимопиар с экспертами</span><br>
+          &darr;<br>
+          <span>Совместные папки</span><br>
+          &darr;<br>
+          <span>Общий трафик</span><br>
+          &darr;<br>
+          <span>Рост аудитории</span>
+        </div>
+        <div class="strategy-goal">Цель: <strong>10-20 партнёров/мес</strong></div>
+      </div>
+
+      <div class="strategy-card paid">
+        <div class="strategy-card-icon">&#128640;</div>
+        <div class="strategy-card-title">ПЛАТНЫЙ ТРАФИК</div>
+        <div class="strategy-flow">
+          <span>Telegram Ads / VK Ads</span><br>
+          &darr;<br>
+          <span>Инструмент</span><br>
+          &darr;<br>
+          <span>Квалификация</span><br>
+          &darr;<br>
+          <span>Продажа</span>
+        </div>
+        <div class="strategy-goal">Цель: <strong>ROMI 200%+</strong></div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-brand">Карина Мамедова | Деньги на экспертности</span>
+      <span>7</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 8: PRODUCT LINE ==================== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-number">06</div>
+      <div class="page-title">Продуктовая линейка</div>
+    </div>
+
+    <div class="ladder">
+      <div class="ladder-step">
+        <div class="ladder-marker"><div class="ladder-dot"></div></div>
+        <div class="ladder-card">
+          <div class="ladder-price">Бесплатно</div>
+          <div class="ladder-info">
+            <div class="ladder-product">AI-инструменты</div>
+            <div class="ladder-details">Лид-магниты: сканер, аудит, калькулятор, диагностика, контент-план</div>
+          </div>
+          <span class="ladder-tag tag-free">Вход</span>
+        </div>
+      </div>
+
+      <div class="ladder-step">
+        <div class="ladder-marker"><div class="ladder-dot"></div></div>
+        <div class="ladder-card">
+          <div class="ladder-price">5 000 руб.</div>
+          <div class="ladder-info">
+            <div class="ladder-product">Распаковка суперсилы</div>
+            <div class="ladder-details">3-4 часа работы в Zoom, персональная стратегия позиционирования</div>
+          </div>
+          <span class="ladder-tag tag-entry">Entry</span>
+        </div>
+      </div>
+
+      <div class="ladder-step">
+        <div class="ladder-marker"><div class="ladder-dot"></div></div>
+        <div class="ladder-card">
+          <div class="ladder-price">15-30K руб.</div>
+          <div class="ladder-info">
+            <div class="ladder-product">Практикум &#171;Старт эксперта&#187;</div>
+            <div class="ladder-details">5-дневный интенсив с заданиями и обратной связью</div>
+          </div>
+          <span class="ladder-tag tag-mid">Mid</span>
+        </div>
+      </div>
+
+      <div class="ladder-step active">
+        <div class="ladder-marker"><div class="ladder-dot"></div></div>
+        <div class="ladder-card">
+          <div class="ladder-price">150 000 руб.</div>
+          <div class="ladder-info">
+            <div class="ladder-product">&#171;Формула САМОзапуска&#187;</div>
+            <div class="ladder-details">6 модулей, 12 групповых созвонов, система под ключ</div>
+          </div>
+          <span class="ladder-tag tag-flag">Flagship</span>
+        </div>
+      </div>
+
+      <div class="ladder-step">
+        <div class="ladder-marker"><div class="ladder-dot"></div></div>
+        <div class="ladder-card">
+          <div class="ladder-price">200K+ руб.</div>
+          <div class="ladder-info">
+            <div class="ladder-product">Наставничество с внедрением</div>
+            <div class="ladder-details">Индивидуальная работа, полное сопровождение запуска</div>
+          </div>
+          <span class="ladder-tag tag-premium">Premium</span>
+        </div>
+      </div>
+
+      <div class="ladder-step">
+        <div class="ladder-marker"><div class="ladder-dot"></div></div>
+        <div class="ladder-card">
+          <div class="ladder-price">VIP</div>
+          <div class="ladder-info">
+            <div class="ladder-product">Buddy-наставник</div>
+            <div class="ladder-details">Ежедневная поддержка, стратегический партнёр в вашем бизнесе</div>
+          </div>
+          <span class="ladder-tag tag-vip">VIP</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-brand">Карина Мамедова | Деньги на экспертности</span>
+      <span>8</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 9: ROADMAP ==================== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-number">07</div>
+      <div class="page-title">Дорожная карта на 90 дней</div>
+    </div>
+
+    <div class="roadmap">
+      <div class="roadmap-month m1">
+        <div class="roadmap-month-header">
+          <div class="roadmap-month-num">01</div>
+          <div class="roadmap-month-info">
+            <div class="roadmap-month-title">ФУНДАМЕНТ</div>
+            <div class="roadmap-month-period">Месяц 1 &mdash; Дни 1-30</div>
+          </div>
+        </div>
+        <div class="roadmap-month-body">
+          <ul class="roadmap-tasks">
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>Запуск 5 AI-инструментов на сайте</span>
+            </li>
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>Настройка Telegram-бота для сбора лидов</span>
+            </li>
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>10 Reels с CTA на инструменты</span>
+            </li>
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>Первые 500 прохождений инструментов</span>
+            </li>
+            <li class="roadmap-goal">Результат 1-го месяца: <strong>5 инструментов запущены, 500+ прохождений, база лидов растёт</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="roadmap-month m2">
+        <div class="roadmap-month-header">
+          <div class="roadmap-month-num">02</div>
+          <div class="roadmap-month-info">
+            <div class="roadmap-month-title">МАСШТАБИРОВАНИЕ</div>
+            <div class="roadmap-month-period">Месяц 2 &mdash; Дни 31-60</div>
+          </div>
+        </div>
+        <div class="roadmap-month-body">
+          <ul class="roadmap-tasks">
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>Запуск платного трафика на инструменты</span>
+            </li>
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>10 партнёрских интеграций</span>
+            </li>
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>A/B тест офферов на основе данных</span>
+            </li>
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>Оптимизация конверсий инструментов</span>
+            </li>
+            <li class="roadmap-goal">Результат 2-го месяца: <strong>2 000 прохождений, 200 лидов в Telegram</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="roadmap-month m3">
+        <div class="roadmap-month-header">
+          <div class="roadmap-month-num">03</div>
+          <div class="roadmap-month-info">
+            <div class="roadmap-month-title">МОНЕТИЗАЦИЯ</div>
+            <div class="roadmap-month-period">Месяц 3 &mdash; Дни 61-90</div>
+          </div>
+        </div>
+        <div class="roadmap-month-body">
+          <ul class="roadmap-tasks">
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>Запуск обновлённой &#171;Формулы САМОзапуска&#187;</span>
+            </li>
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>Вебинар с данными из инструментов</span>
+            </li>
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>Автоворонка: инструмент &rarr; серия сообщений &rarr; вебинар &rarr; продажа</span>
+            </li>
+            <li class="roadmap-task">
+              <div class="roadmap-check"></div>
+              <span>Масштабирование рабочих связок</span>
+            </li>
+            <li class="roadmap-goal">Результат 3-го месяца: <strong>50+ продаж, выручка 3М+</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-brand">Карина Мамедова | Деньги на экспертности</span>
+      <span>9</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== LAST PAGE: FOOTER ==================== -->
+<div class="page final-page">
+  <div class="final-divider-top"></div>
+
+  <div class="final-label">Подготовлено</div>
+
+  <div class="final-name">Карина Мамедова</div>
+
+  <div class="final-handle">@KARINA_ProZAPUSKI</div>
+
+  <div class="final-divider"></div>
+
+  <div class="final-url">karina-link.vercel.app</div>
+
+  <div class="final-tagline">Деньги на экспертности &mdash; 2026</div>
+</div>
+
+</body>
+</html>
