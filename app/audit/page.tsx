@@ -186,7 +186,7 @@ function OverallScore({ score }: { score: number }) {
   const bg = score >= 70 ? "rgba(34,197,94,0.08)" : score >= 40 ? "rgba(245,158,11,0.08)" : "rgba(239,68,68,0.08)";
 
   return (
-    <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#E7E5E4] p-6" style={{ backgroundColor: bg }}>
+    <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#E8E2DA] p-6" style={{ backgroundColor: bg }}>
       <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
         <svg width={size} height={size} className="-rotate-90">
           <circle
@@ -212,7 +212,7 @@ function OverallScore({ score }: { score: number }) {
         </svg>
         <div className="absolute flex flex-col items-center">
           <span className="text-3xl font-bold" style={{ color }}>{score}</span>
-          <span className="text-[10px] text-[#A8A29E]">из 100</span>
+          <span className="text-[10px] text-[#8A8078]">из 100</span>
         </div>
       </div>
       <span className="text-sm font-semibold" style={{ color }}>{label}</span>
@@ -798,7 +798,7 @@ export default function AuditPage() {
           {/* Intro */}
           <div className="glass-card rounded-2xl/60 p-4">
             <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#B8962E]/10 text-[#B8962E]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#B08D3E]/10 text-[#B08D3E]">
                 <LightbulbIcon className="w-5 h-5" />
               </div>
               <div>
@@ -819,13 +819,13 @@ export default function AuditPage() {
               onChange={(e) => setOfferText(e.target.value)}
               placeholder={PLACEHOLDER_OFFER}
               rows={6}
-              className="w-full rounded-xl border border-[#E7E5E4] bg-white px-4 py-3 text-sm text-[#1C1917] placeholder-white/25 outline-none transition-all focus:border-[#B8962E]/50 focus:ring-1 focus:ring-[#B8962E]/25 resize-none"
+              className="w-full rounded-xl border border-[#E8E2DA] bg-white px-4 py-3 text-sm text-[#191715] placeholder-white/25 outline-none transition-all focus:border-[#B08D3E]/50 focus:ring-1 focus:ring-[#B08D3E]/25 resize-none"
             />
             <div className="flex justify-between mt-1.5">
-              <span className="text-[11px] text-[#A8A29E]">
+              <span className="text-[11px] text-[#8A8078]">
                 Вставь текст своего оффера
               </span>
-              <span className={`text-[11px] ${offerText.trim().split(/\s+/).filter(Boolean).length > 150 ? "text-red-400" : "text-[#A8A29E]"}`}>
+              <span className={`text-[11px] ${offerText.trim().split(/\s+/).filter(Boolean).length > 150 ? "text-red-400" : "text-[#8A8078]"}`}>
                 {offerText.trim() ? offerText.trim().split(/\s+/).filter(Boolean).length : 0} слов
               </span>
             </div>
@@ -840,15 +840,15 @@ export default function AuditPage() {
               <select
                 value={niche}
                 onChange={(e) => setNiche(e.target.value)}
-                className="w-full appearance-none rounded-xl border border-[#E7E5E4] bg-white px-4 py-3 pr-10 text-sm text-[#1C1917] outline-none transition-all focus:border-[#B8962E]/50 focus:ring-1 focus:ring-[#B8962E]/25 cursor-pointer"
+                className="w-full appearance-none rounded-xl border border-[#E8E2DA] bg-white px-4 py-3 pr-10 text-sm text-[#191715] outline-none transition-all focus:border-[#B08D3E]/50 focus:ring-1 focus:ring-[#B08D3E]/25 cursor-pointer"
               >
                 {NICHES.map(n => (
-                  <option key={n} value={n} className="bg-[#FFFFFF] text-[#1C1917]">
+                  <option key={n} value={n} className="bg-[#FFFFFF] text-[#191715]">
                     {n}
                   </option>
                 ))}
               </select>
-              <ChevronDownIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#A8A29E] pointer-events-none" />
+              <ChevronDownIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8A8078] pointer-events-none" />
             </div>
           </div>
 
@@ -856,7 +856,7 @@ export default function AuditPage() {
           <button
             onClick={runAnalysis}
             disabled={!offerText.trim()}
-            className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#B8962E] py-3.5 text-sm font-bold text-[#FFFFFF] transition-all hover:bg-[#E8D5A0] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#B8962E] pulse-gold"
+            className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#B08D3E] py-3.5 text-sm font-bold text-[#FFFFFF] transition-all hover:bg-[#D4B96A] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#B08D3E] pulse-gold"
           >
             <DocumentIcon className="w-5 h-5" />
             Проанализировать
@@ -871,22 +871,22 @@ export default function AuditPage() {
           <div className="relative w-24 h-24 mb-8">
             {/* Outer ring */}
             <div
-              className="absolute inset-0 rounded-full border-2 border-[#B8962E]/20"
+              className="absolute inset-0 rounded-full border-2 border-[#B08D3E]/20"
               style={{ animation: "pulse 2s ease-in-out infinite" }}
             />
             {/* Middle ring */}
             <div
-              className="absolute inset-2 rounded-full border-2 border-[#B8962E]/30"
+              className="absolute inset-2 rounded-full border-2 border-[#B08D3E]/30"
               style={{ animation: "pulse 2s ease-in-out infinite 0.3s" }}
             />
             {/* Inner ring */}
             <div
-              className="absolute inset-4 rounded-full border-2 border-[#B8962E]/40"
+              className="absolute inset-4 rounded-full border-2 border-[#B08D3E]/40"
               style={{ animation: "pulse 2s ease-in-out infinite 0.6s" }}
             />
             {/* Center icon */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <DocumentIcon className="w-8 h-8 text-[#B8962E]" />
+              <DocumentIcon className="w-8 h-8 text-[#B08D3E]" />
             </div>
             {/* Rotating scanner line */}
             <div
@@ -896,17 +896,17 @@ export default function AuditPage() {
                 transformOrigin: "center",
               }}
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-1/2 bg-gradient-to-b from-[#B8962E] to-transparent rounded-full" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-1/2 bg-gradient-to-b from-[#B08D3E] to-transparent rounded-full" />
             </div>
           </div>
 
           {/* Title */}
-          <h3 className="text-lg font-bold text-[#1C1917] mb-2">
+          <h3 className="text-lg font-bold text-[#191715] mb-2">
             Анализирую оффер...
           </h3>
 
           {/* Current step text */}
-          <p className="text-sm text-[#B8962E] mb-6 h-5 transition-all duration-300">
+          <p className="text-sm text-[#B08D3E] mb-6 h-5 transition-all duration-300">
             {ANALYSIS_STEPS[loadingStep]}
           </p>
 
@@ -914,7 +914,7 @@ export default function AuditPage() {
           <div className="w-full max-w-xs">
             <div className="h-2 rounded-full bg-white/5 overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-[#B8962E] to-[#E8D5A0] transition-all duration-100 ease-linear"
+                className="h-full rounded-full bg-gradient-to-r from-[#B08D3E] to-[#D4B96A] transition-all duration-100 ease-linear"
                 style={{ width: `${loadingProgress}%` }}
               />
             </div>
@@ -924,7 +924,7 @@ export default function AuditPage() {
                 <div key={i} className="flex flex-col items-center gap-1">
                   <div
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      i <= loadingStep ? "bg-[#B8962E] scale-110" : "bg-white/10"
+                      i <= loadingStep ? "bg-[#B08D3E] scale-110" : "bg-white/10"
                     }`}
                   />
                 </div>
@@ -953,25 +953,25 @@ export default function AuditPage() {
                 <button
                   key={criterion.key}
                   onClick={() => setExpandedCard(isExpanded ? null : criterion.key)}
-                  className="w-full text-left rounded-xl border border-[#E7E5E4]/8 bg-white/90 transition-all duration-300 hover:border-[#B8962E]/20 overflow-hidden"
+                  className="w-full text-left rounded-xl border border-[#E8E2DA]/8 bg-white/90 transition-all duration-300 hover:border-[#B08D3E]/20 overflow-hidden"
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
                   {/* Main row */}
                   <div className="flex items-center gap-3 p-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#B8962E]/10 text-[#B8962E]">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#B08D3E]/10 text-[#B08D3E]">
                       {criterion.icon}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm font-semibold text-[#1C1917]">
+                      <div className="text-sm font-semibold text-[#191715]">
                         {criterion.label}
                       </div>
-                      <div className="text-xs text-[#1C1917]/45 truncate">
+                      <div className="text-xs text-[#191715]/45 truncate">
                         {criterion.feedback}
                       </div>
                     </div>
                     <CircularScore score={animatedScores ? criterion.score : 0} size={52} strokeWidth={4} />
                     <ChevronDownIcon
-                      className={`w-4 h-4 text-[#A8A29E] shrink-0 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
+                      className={`w-4 h-4 text-[#8A8078] shrink-0 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
                     />
                   </div>
 
@@ -982,7 +982,7 @@ export default function AuditPage() {
                     }`}
                   >
                     <div className="px-4 pb-4 pt-0">
-                      <div className="border-t border-[#E7E5E4]/5 pt-3">
+                      <div className="border-t border-[#E8E2DA]/5 pt-3">
                         <p className="text-xs text-[#78716C] leading-relaxed">
                           {criterion.details}
                         </p>
@@ -997,13 +997,13 @@ export default function AuditPage() {
           {/* What to improve */}
           <div className="glass-card rounded-2xl/60 p-5">
             <div className="flex items-center gap-2 mb-4">
-              <LightbulbIcon className="w-5 h-5 text-[#B8962E]" />
-              <h3 className="text-sm font-bold text-[#1C1917]">Что улучшить</h3>
+              <LightbulbIcon className="w-5 h-5 text-[#B08D3E]" />
+              <h3 className="text-sm font-bold text-[#191715]">Что улучшить</h3>
             </div>
             <ul className="space-y-3">
               {tips.map((tip, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#B8962E]/15 text-[10px] font-bold text-[#B8962E] mt-0.5">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#B08D3E]/15 text-[10px] font-bold text-[#B08D3E] mt-0.5">
                     {i + 1}
                   </span>
                   <span className="text-sm text-[#57534E] leading-relaxed">
@@ -1015,15 +1015,15 @@ export default function AuditPage() {
           </div>
 
           {/* Improved offer */}
-          <div className="rounded-2xl border border-[#B8962E]/25 bg-gradient-to-br from-[#B8962E]/8 to-[#B8962E]/3 p-5">
+          <div className="rounded-2xl border border-[#B08D3E]/25 bg-gradient-to-br from-[#B08D3E]/8 to-[#B08D3E]/3 p-5">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <SparklesIcon className="w-5 h-5 text-[#B8962E]" />
-                <h3 className="text-sm font-bold text-[#1C1917]">Улучшенный оффер</h3>
+                <SparklesIcon className="w-5 h-5 text-[#B08D3E]" />
+                <h3 className="text-sm font-bold text-[#191715]">Улучшенный оффер</h3>
               </div>
               <button
                 onClick={(e) => { e.stopPropagation(); copyImprovedOffer(); }}
-                className="flex items-center gap-1.5 rounded-lg bg-[#B8962E]/15 px-3 py-1.5 text-xs font-medium text-[#B8962E] transition-all hover:bg-[#B8962E]/25"
+                className="flex items-center gap-1.5 rounded-lg bg-[#B08D3E]/15 px-3 py-1.5 text-xs font-medium text-[#B08D3E] transition-all hover:bg-[#B08D3E]/25"
               >
                 {copied ? (
                   <>
@@ -1038,8 +1038,8 @@ export default function AuditPage() {
                 )}
               </button>
             </div>
-            <div className="rounded-xl bg-white border border-[#E7E5E4]/5 p-4">
-              <p className="text-sm text-[#1C1917] leading-relaxed whitespace-pre-line">
+            <div className="rounded-xl bg-white border border-[#E8E2DA]/5 p-4">
+              <p className="text-sm text-[#191715] leading-relaxed whitespace-pre-line">
                 {improvedOffer}
               </p>
             </div>
@@ -1048,7 +1048,7 @@ export default function AuditPage() {
           {/* Try again */}
           <button
             onClick={resetForm}
-            className="w-full flex items-center justify-center gap-2 rounded-xl border border-[#B8962E]/25 py-3 text-sm font-semibold text-[#B8962E] transition-all hover:bg-[#B8962E]/10"
+            className="w-full flex items-center justify-center gap-2 rounded-xl border border-[#B08D3E]/25 py-3 text-sm font-semibold text-[#B08D3E] transition-all hover:bg-[#B08D3E]/10"
           >
             <ArrowPathIcon className="w-4 h-4" />
             Проверить другой оффер

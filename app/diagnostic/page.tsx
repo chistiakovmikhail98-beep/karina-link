@@ -286,7 +286,7 @@ const typeResults: Record<Category, TypeResult> = {
     key: "A",
     title: "Вечный студент",
     icon: "\uD83D\uDCDA",
-    color: "#B8962E",
+    color: "#B08D3E",
     colorBg: "rgba(200, 168, 78, 0.15)",
     description:
       "Ты знаешь больше, чем 90% экспертов, но не применяешь. Каждый новый курс даёт иллюзию прогресса, но доход не растёт. Тебе не нужно больше знаний \u2014 тебе нужна система и действие.",
@@ -496,16 +496,16 @@ export default function DiagnosticPage() {
           {/* Progress bar */}
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs">
-              <span className="text-[#A8A29E]">
+              <span className="text-[#8A8078]">
                 Вопрос {currentQuestion + 1} из {totalQuestions}
               </span>
-              <span className="text-[#B8962E] font-medium">
+              <span className="text-[#B08D3E] font-medium">
                 {Math.round(progress)}%
               </span>
             </div>
             <div className="h-2 w-full rounded-full bg-white/5 overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-[#B8962E] to-[#E8D5A0] transition-all duration-500 ease-out"
+                className="h-full rounded-full bg-gradient-to-r from-[#B08D3E] to-[#D4B96A] transition-all duration-500 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -524,14 +524,14 @@ export default function DiagnosticPage() {
             <div className="glass-card rounded-2xl p-5 sm:p-6">
               {/* Question number badge */}
               <div className="flex items-center gap-2 mb-4">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#B8962E]/15 text-[#B8962E] text-sm font-bold">
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#B08D3E]/15 text-[#B08D3E] text-sm font-bold">
                   {question.id}
                 </span>
-                <div className="flex-1 h-[1px] bg-gradient-to-r from-[#B8962E]/20 to-transparent" />
+                <div className="flex-1 h-[1px] bg-gradient-to-r from-[#B08D3E]/20 to-transparent" />
               </div>
 
               {/* Question text */}
-              <h2 className="text-base sm:text-lg font-semibold text-[#1C1917] leading-relaxed mb-5">
+              <h2 className="text-base sm:text-lg font-semibold text-[#191715] leading-relaxed mb-5">
                 {question.text}
               </h2>
 
@@ -548,18 +548,18 @@ export default function DiagnosticPage() {
                       disabled={selectedAnswer !== null}
                       className={`w-full text-left rounded-xl border px-4 py-3.5 text-sm transition-all duration-300 ${
                         isSelected
-                          ? "border-[#B8962E] bg-[#B8962E]/20 text-[#1C1917] shadow-[0_0_20px_rgba(200,168,78,0.15)] scale-[1.02]"
+                          ? "border-[#B08D3E] bg-[#B08D3E]/20 text-[#191715] shadow-[0_0_20px_rgba(200,168,78,0.15)] scale-[1.02]"
                           : wasPreviouslySelected
-                          ? "border-[#B8962E]/30 bg-[#B8962E]/10 text-[#1C1917]"
-                          : "border-[#E7E5E4] bg-white/[0.03] text-[#57534E] hover:border-[#B8962E]/30 hover:bg-[#B8962E]/5 hover:text-[#1C1917] active:scale-[0.98]"
+                          ? "border-[#B08D3E]/30 bg-[#B08D3E]/10 text-[#191715]"
+                          : "border-[#E8E2DA] bg-white/[0.03] text-[#57534E] hover:border-[#B08D3E]/30 hover:bg-[#B08D3E]/5 hover:text-[#191715] active:scale-[0.98]"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span
                           className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold transition-all duration-300 ${
                             isSelected
-                              ? "border-[#B8962E] bg-[#B8962E] text-[#FFFFFF]"
-                              : "border-[#E7E5E4] text-[#A8A29E]"
+                              ? "border-[#B08D3E] bg-[#B08D3E] text-[#FFFFFF]"
+                              : "border-[#E8E2DA] text-[#8A8078]"
                           }`}
                         >
                           {String.fromCharCode(65 + idx)}
@@ -578,7 +578,7 @@ export default function DiagnosticPage() {
             <button
               onClick={handleGoBack}
               disabled={isTransitioning || selectedAnswer !== null}
-              className="flex items-center gap-1.5 text-sm text-[#A8A29E] transition-colors hover:text-[#78716C] disabled:opacity-30"
+              className="flex items-center gap-1.5 text-sm text-[#8A8078] transition-colors hover:text-[#78716C] disabled:opacity-30"
             >
               <svg
                 className="w-4 h-4"
@@ -605,14 +605,14 @@ export default function DiagnosticPage() {
           }`}
         >
           {/* Main result card */}
-          <div className="rounded-2xl border border-[#B8962E]/20 glass-card overflow-hidden">
+          <div className="rounded-2xl border border-[#B08D3E]/20 glass-card overflow-hidden">
             {/* Header with type icon and title */}
             <div
               className="p-6 text-center"
               style={{ backgroundColor: result.colorBg }}
             >
               <div className="text-5xl mb-3">{result.icon}</div>
-              <p className="text-xs font-medium uppercase tracking-widest text-[#A8A29E] mb-1">
+              <p className="text-xs font-medium uppercase tracking-widest text-[#8A8078] mb-1">
                 Твой тип
               </p>
               <h2
@@ -634,7 +634,7 @@ export default function DiagnosticPage() {
 
               {/* Blockers */}
               <div>
-                <h3 className="flex items-center gap-2 text-sm font-bold text-[#1C1917] mb-3">
+                <h3 className="flex items-center gap-2 text-sm font-bold text-[#191715] mb-3">
                   <svg
                     className="w-4 h-4 text-red-400"
                     fill="none"
@@ -668,9 +668,9 @@ export default function DiagnosticPage() {
 
               {/* Actions */}
               <div>
-                <h3 className="flex items-center gap-2 text-sm font-bold text-[#1C1917] mb-3">
+                <h3 className="flex items-center gap-2 text-sm font-bold text-[#191715] mb-3">
                   <svg
-                    className="w-4 h-4 text-[#B8962E]"
+                    className="w-4 h-4 text-[#B08D3E]"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={2}
@@ -708,8 +708,8 @@ export default function DiagnosticPage() {
           </div>
 
           {/* Percentage breakdown */}
-          <div className="rounded-2xl border border-[#E7E5E4] glass-card p-5 sm:p-6">
-            <h3 className="text-sm font-bold text-[#1C1917] mb-4">
+          <div className="rounded-2xl border border-[#E8E2DA] glass-card p-5 sm:p-6">
+            <h3 className="text-sm font-bold text-[#191715] mb-4">
               Твой профиль по типам
             </h3>
             <div className="space-y-3">
@@ -725,20 +725,20 @@ export default function DiagnosticPage() {
                         <span className="text-base">{tr.icon}</span>
                         <span
                           className={`text-xs font-medium ${
-                            isWinner ? "text-[#1C1917]" : "text-[#78716C]"
+                            isWinner ? "text-[#191715]" : "text-[#78716C]"
                           }`}
                         >
                           {categoryLabels[cat]}
                         </span>
                         {isWinner && (
-                          <span className="inline-flex items-center rounded-full bg-[#B8962E]/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#B8962E]">
+                          <span className="inline-flex items-center rounded-full bg-[#B08D3E]/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#B08D3E]">
                             MAX
                           </span>
                         )}
                       </div>
                       <span
                         className={`text-xs font-bold ${
-                          isWinner ? "text-[#1C1917]" : "text-[#A8A29E]"
+                          isWinner ? "text-[#191715]" : "text-[#8A8078]"
                         }`}
                       >
                         {pct}%
@@ -757,17 +757,17 @@ export default function DiagnosticPage() {
                 );
               })}
             </div>
-            <p className="text-[11px] text-[#A8A29E] mt-3">
+            <p className="text-[11px] text-[#8A8078] mt-3">
               Большинство экспертов сочетают в себе несколько типов. Работай над
               доминирующим \u2014 остальное подтянется.
             </p>
           </div>
 
           {/* Program recommendation */}
-          <div className="rounded-2xl border border-[#B8962E]/20 bg-gradient-to-br from-[#B8962E]/10 to-[#B8962E]/5 p-5 sm:p-6">
+          <div className="rounded-2xl border border-[#B08D3E]/20 bg-gradient-to-br from-[#B08D3E]/10 to-[#B08D3E]/5 p-5 sm:p-6">
             <div className="flex items-center gap-2 mb-3">
               <svg
-                className="w-5 h-5 text-[#B8962E]"
+                className="w-5 h-5 text-[#B08D3E]"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
@@ -779,7 +779,7 @@ export default function DiagnosticPage() {
                   d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
                 />
               </svg>
-              <h3 className="text-sm font-bold text-[#B8962E]">
+              <h3 className="text-sm font-bold text-[#B08D3E]">
                 Рекомендованная программа Карины
               </h3>
             </div>
@@ -790,7 +790,7 @@ export default function DiagnosticPage() {
               href={result.programLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#B8962E] px-6 py-2.5 text-sm font-bold text-[#FFFFFF] transition-all hover:bg-[#E8D5A0]"
+              className="inline-flex items-center gap-2 rounded-full bg-[#B08D3E] px-6 py-2.5 text-sm font-bold text-[#FFFFFF] transition-all hover:bg-[#D4B96A]"
             >
               <svg
                 className="w-4 h-4"
@@ -806,7 +806,7 @@ export default function DiagnosticPage() {
           {/* Restart button */}
           <button
             onClick={handleRestart}
-            className="w-full flex items-center justify-center gap-2 rounded-xl border border-[#E7E5E4] py-3 text-sm text-[#A8A29E] transition-all hover:border-[#E7E5E4] hover:text-[#78716C]"
+            className="w-full flex items-center justify-center gap-2 rounded-xl border border-[#E8E2DA] py-3 text-sm text-[#8A8078] transition-all hover:border-[#E8E2DA] hover:text-[#78716C]"
           >
             <svg
               className="w-4 h-4"

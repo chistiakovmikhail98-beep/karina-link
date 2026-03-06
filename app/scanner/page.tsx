@@ -388,14 +388,14 @@ function ProgressBar({ step, total }: { step: number; total: number }) {
   return (
     <div className="mb-6">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-xs text-[#A8A29E]">
+        <span className="text-xs text-[#8A8078]">
           Шаг {step} из {total}
         </span>
-        <span className="text-xs text-[#B8962E] font-medium">{Math.round(pct)}%</span>
+        <span className="text-xs text-[#B08D3E] font-medium">{Math.round(pct)}%</span>
       </div>
       <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-[#B8962E] to-[#E8D5A0] transition-all duration-500 ease-out"
+          className="h-full rounded-full bg-gradient-to-r from-[#B08D3E] to-[#D4B96A] transition-all duration-500 ease-out"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -421,7 +421,7 @@ function QuestionCard({
   return (
     <div className="animate-[fadeSlideIn_0.4s_ease-out_forwards]">
       <div className="glass-card rounded-2xl p-5 sm:p-6">
-        <h2 className="text-base sm:text-lg font-semibold text-[#1C1917] mb-5 leading-snug">
+        <h2 className="text-base sm:text-lg font-semibold text-[#191715] mb-5 leading-snug">
           {question}
         </h2>
         <div className="mb-6">{children}</div>
@@ -430,7 +430,7 @@ function QuestionCard({
             <button
               type="button"
               onClick={onBack}
-              className="flex items-center gap-1 rounded-full border border-[#E7E5E4] px-4 py-2.5 text-sm text-[#78716C] transition-all hover:border-[#E7E5E4] hover:text-[#57534E]"
+              className="flex items-center gap-1 rounded-full border border-[#E8E2DA] px-4 py-2.5 text-sm text-[#78716C] transition-all hover:border-[#E8E2DA] hover:text-[#57534E]"
             >
               <svg
                 className="w-4 h-4"
@@ -454,7 +454,7 @@ function QuestionCard({
             disabled={!canProceed}
             className={`flex-1 rounded-full py-2.5 text-sm font-bold transition-all duration-300 ${
               canProceed
-                ? "bg-[#B8962E] text-[#FFFFFF] hover:bg-[#E8D5A0] shadow-[0_0_20px_rgba(200,168,78,0.15)]"
+                ? "bg-[#B08D3E] text-[#FFFFFF] hover:bg-[#D4B96A] shadow-[0_0_20px_rgba(200,168,78,0.15)]"
                 : "bg-white/5 text-[#D6D3D1] cursor-not-allowed"
             }`}
           >
@@ -495,32 +495,32 @@ function AnalyzingScreen() {
       {/* Spinner */}
       <div className="relative w-20 h-20 mb-8">
         <div
-          className="absolute inset-0 rounded-full border-[3px] border-[#B8962E]/20"
+          className="absolute inset-0 rounded-full border-[3px] border-[#B08D3E]/20"
         />
         <div
-          className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-[#B8962E] border-r-[#B8962E]"
+          className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-[#B08D3E] border-r-[#B08D3E]"
           style={{ animation: "spinGold 1s linear infinite" }}
         />
         <div
-          className="absolute inset-3 rounded-full border-[2px] border-transparent border-b-[#E8D5A0] border-l-[#E8D5A0]"
+          className="absolute inset-3 rounded-full border-[2px] border-transparent border-b-[#D4B96A] border-l-[#D4B96A]"
           style={{ animation: "spinGold 1.5s linear infinite reverse" }}
         />
         <div
           className="absolute inset-0 flex items-center justify-center"
         >
           <div
-            className="w-3 h-3 rounded-full bg-[#B8962E]"
+            className="w-3 h-3 rounded-full bg-[#B08D3E]"
             style={{ animation: "pulseScale 1.2s ease-in-out infinite" }}
           />
         </div>
       </div>
 
       {/* Text */}
-      <p className="text-[#1C1917] font-semibold text-base mb-2">
+      <p className="text-[#191715] font-semibold text-base mb-2">
         {phases[phase]}
         {".".repeat(dots)}
       </p>
-      <p className="text-[#A8A29E] text-sm">Это займёт несколько секунд</p>
+      <p className="text-[#8A8078] text-sm">Это займёт несколько секунд</p>
 
       {/* Progress hints */}
       <div className="mt-6 flex gap-2">
@@ -528,7 +528,7 @@ function AnalyzingScreen() {
           <div
             key={i}
             className={`h-1.5 w-8 rounded-full transition-all duration-500 ${
-              i <= phase ? "bg-[#B8962E]" : "bg-white/10"
+              i <= phase ? "bg-[#B08D3E]" : "bg-white/10"
             }`}
           />
         ))}
@@ -573,14 +573,14 @@ function ScoreRing({ score }: { score: number }) {
         />
         <defs>
           <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#B8962E" />
-            <stop offset="100%" stopColor="#E8D5A0" />
+            <stop offset="0%" stopColor="#B08D3E" />
+            <stop offset="100%" stopColor="#D4B96A" />
           </linearGradient>
         </defs>
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-3xl font-bold text-[#B8962E]">{score}</span>
-        <span className="text-[10px] text-[#A8A29E] uppercase tracking-wider">
+        <span className="text-3xl font-bold text-[#B08D3E]">{score}</span>
+        <span className="text-[10px] text-[#8A8078] uppercase tracking-wider">
           из 100
         </span>
       </div>
@@ -611,13 +611,13 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
       {/* Header */}
       <div className={sectionClass(1)}>
         <div className="text-center mb-2">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#B8962E]/15 px-3 py-1 text-xs font-bold text-[#B8962E] uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#B08D3E]/15 px-3 py-1 text-xs font-bold text-[#B08D3E] uppercase tracking-wider mb-3">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
             </svg>
             Результаты сканирования
           </div>
-          <h2 className="text-xl font-bold text-[#1C1917]">
+          <h2 className="text-xl font-bold text-[#191715]">
             {name}, вот твой профиль
           </h2>
         </div>
@@ -626,7 +626,7 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
       {/* Score */}
       <div className={sectionClass(1)}>
         <div className="glass-card rounded-2xl/80 p-5 text-center">
-          <p className="text-xs text-[#A8A29E] uppercase tracking-wider mb-3">
+          <p className="text-xs text-[#8A8078] uppercase tracking-wider mb-3">
             Раскрытие потенциала
           </p>
           <ScoreRing score={results.score} />
@@ -644,16 +644,16 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
       <div className={sectionClass(2)}>
         <div className="glass-card rounded-2xl/80 p-5">
           <div className="flex items-center gap-2 mb-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#B8962E]/10">
-              <svg className="w-4 h-4 text-[#B8962E]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#B08D3E]/10">
+              <svg className="w-4 h-4 text-[#B08D3E]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
               </svg>
             </div>
-            <h3 className="text-sm font-bold text-[#B8962E] uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-[#B08D3E] uppercase tracking-wider">
               Твоя суперсила
             </h3>
           </div>
-          <p className="text-sm text-[#1C1917] leading-relaxed">
+          <p className="text-sm text-[#191715] leading-relaxed">
             {results.superpower}
           </p>
         </div>
@@ -663,16 +663,16 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
       <div className={sectionClass(3)}>
         <div className="glass-card rounded-2xl/80 p-5">
           <div className="flex items-center gap-2 mb-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#B8962E]/10">
-              <svg className="w-4 h-4 text-[#B8962E]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#B08D3E]/10">
+              <svg className="w-4 h-4 text-[#B08D3E]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h3 className="text-sm font-bold text-[#B8962E] uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-[#B08D3E] uppercase tracking-wider">
               Позиционирование
             </h3>
           </div>
-          <p className="text-base font-medium text-[#1C1917] leading-relaxed italic">
+          <p className="text-base font-medium text-[#191715] leading-relaxed italic">
             &laquo;{results.positioning}&raquo;
           </p>
         </div>
@@ -682,12 +682,12 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
       <div className={sectionClass(4)}>
         <div className="glass-card rounded-2xl/80 p-5">
           <div className="flex items-center gap-2 mb-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#B8962E]/10">
-              <svg className="w-4 h-4 text-[#B8962E]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#B08D3E]/10">
+              <svg className="w-4 h-4 text-[#B08D3E]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25H5.625a2.25 2.25 0 01-2.25-2.25V6.375c0-.621.504-1.125 1.125-1.125h3.375" />
               </svg>
             </div>
-            <h3 className="text-sm font-bold text-[#B8962E] uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-[#B08D3E] uppercase tracking-wider">
               3 темы контента
             </h3>
           </div>
@@ -697,7 +697,7 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
                 key={i}
                 className="flex items-start gap-3 rounded-xl bg-white/[0.03] p-3"
               >
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#B8962E]/15 text-xs font-bold text-[#B8962E]">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#B08D3E]/15 text-xs font-bold text-[#B08D3E]">
                   {i + 1}
                 </span>
                 <p className="text-sm text-[#57534E] leading-relaxed">{topic}</p>
@@ -728,18 +728,18 @@ function ResultsScreen({ results, name }: { results: Results; name: string }) {
 
       {/* CTA */}
       <div className={sectionClass(5)}>
-        <div className="rounded-2xl bg-gradient-to-br from-[#B8962E]/20 to-[#B8962E]/5 border border-[#B8962E]/25 p-5 text-center">
+        <div className="rounded-2xl bg-gradient-to-br from-[#B08D3E]/20 to-[#B08D3E]/5 border border-[#B08D3E]/25 p-5 text-center">
           <p className="text-sm text-[#78716C] mb-1">
             Хочешь раскрыть суперсилу на полную?
           </p>
-          <p className="text-xs text-[#A8A29E] mb-4">
+          <p className="text-xs text-[#8A8078] mb-4">
             Карина лично проведёт глубинную распаковку
           </p>
           <a
             href="https://t.me/KARINA_ProZAPUSKI?text=%D0%A5%D0%BE%D1%87%D1%83+%D1%80%D0%B0%D1%81%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D1%83"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#B8962E] px-6 py-2.5 text-sm font-bold text-[#FFFFFF] transition hover:bg-[#E8D5A0] pulse-gold"
+            className="inline-flex items-center gap-2 rounded-full bg-[#B08D3E] px-6 py-2.5 text-sm font-bold text-[#FFFFFF] transition hover:bg-[#D4B96A] pulse-gold"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
@@ -863,7 +863,7 @@ export default function ScannerPage() {
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full rounded-xl border border-[#E7E5E4] bg-white/[0.04] px-4 py-3 text-sm text-[#1C1917] placeholder-white/25 outline-none transition-all focus:border-[#B8962E]/50 focus:bg-white/[0.06] focus:ring-1 focus:ring-[#B8962E]/25"
+      className="w-full rounded-xl border border-[#E8E2DA] bg-white/[0.04] px-4 py-3 text-sm text-[#191715] placeholder-white/25 outline-none transition-all focus:border-[#B08D3E]/50 focus:bg-white/[0.06] focus:ring-1 focus:ring-[#B08D3E]/25"
       onKeyDown={(e) => {
         if (e.key === "Enter" && canProceed()) handleNext();
       }}
@@ -881,7 +881,7 @@ export default function ScannerPage() {
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
       rows={4}
-      className="w-full rounded-xl border border-[#E7E5E4] bg-white/[0.04] px-4 py-3 text-sm text-[#1C1917] placeholder-white/25 outline-none transition-all focus:border-[#B8962E]/50 focus:bg-white/[0.06] focus:ring-1 focus:ring-[#B8962E]/25 resize-none"
+      className="w-full rounded-xl border border-[#E8E2DA] bg-white/[0.04] px-4 py-3 text-sm text-[#191715] placeholder-white/25 outline-none transition-all focus:border-[#B08D3E]/50 focus:bg-white/[0.06] focus:ring-1 focus:ring-[#B08D3E]/25 resize-none"
       autoFocus
     />
   );
@@ -899,8 +899,8 @@ export default function ScannerPage() {
           onClick={() => onChange(opt)}
           className={`rounded-xl border px-3 py-2.5 text-sm text-left transition-all ${
             value === opt
-              ? "border-[#B8962E]/60 bg-[#B8962E]/15 text-[#B8962E] font-medium"
-              : "border-[#E7E5E4] bg-white/[0.03] text-[#78716C] hover:border-[#E7E5E4] hover:bg-white/[0.06]"
+              ? "border-[#B08D3E]/60 bg-[#B08D3E]/15 text-[#B08D3E] font-medium"
+              : "border-[#E8E2DA] bg-white/[0.03] text-[#78716C] hover:border-[#E8E2DA] hover:bg-white/[0.06]"
           }`}
         >
           {opt}
@@ -924,15 +924,15 @@ export default function ScannerPage() {
             onClick={() => onToggle(opt)}
             className={`flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-sm text-left transition-all ${
               isChecked
-                ? "border-[#B8962E]/60 bg-[#B8962E]/15 text-[#1C1917]"
-                : "border-[#E7E5E4] bg-white/[0.03] text-[#78716C] hover:border-[#E7E5E4] hover:bg-white/[0.06]"
+                ? "border-[#B08D3E]/60 bg-[#B08D3E]/15 text-[#191715]"
+                : "border-[#E8E2DA] bg-white/[0.03] text-[#78716C] hover:border-[#E8E2DA] hover:bg-white/[0.06]"
             }`}
           >
             <div
               className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-all ${
                 isChecked
-                  ? "border-[#B8962E] bg-[#B8962E]"
-                  : "border-[#E7E5E4] bg-transparent"
+                  ? "border-[#B08D3E] bg-[#B08D3E]"
+                  : "border-[#E8E2DA] bg-transparent"
               }`}
             >
               {isChecked && (
@@ -1157,7 +1157,7 @@ export default function ScannerPage() {
             onBack={handleBack}
             canProceed={canProceed()}
           >
-            <p className="text-xs text-[#A8A29E] mb-3">
+            <p className="text-xs text-[#8A8078] mb-3">
               Выбери все подходящие варианты
             </p>
             {checkboxList(BLOCKERS, answers.blockers, toggleBlocker)}
