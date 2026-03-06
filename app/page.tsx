@@ -17,34 +17,10 @@ const Arrow = () => (
   </svg>
 );
 
-const Check = ({ gold }: { gold?: boolean }) => (
-  <svg className={`w-[18px] h-[18px] shrink-0 ${gold ? "text-[#C8A55A]" : "text-[#555]"}`} viewBox="0 0 20 20" fill="currentColor">
+const Check = ({ accent }: { accent?: boolean }) => (
+  <svg className={`w-5 h-5 shrink-0 ${accent ? "text-[#B8962E]" : "text-[#D6D3D1]"}`} viewBox="0 0 20 20" fill="currentColor">
     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
   </svg>
-);
-
-/* ─── Floating Particles ─── */
-
-const Particles = () => (
-  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-    {Array.from({ length: 14 }).map((_, i) => (
-      <div
-        key={i}
-        className="absolute rounded-full bg-[#C8A55A]"
-        style={{
-          width: `${2 + (i % 3)}px`,
-          height: `${2 + (i % 3)}px`,
-          left: `${8 + (i * 7) % 84}%`,
-          top: `${10 + (i * 11) % 80}%`,
-          opacity: 0.12 + (i % 4) * 0.06,
-          animation: `float-particle ${8 + (i % 5) * 2}s ease-in-out infinite`,
-          animationDelay: `${i * 0.7}s`,
-          ['--tx' as string]: `${-20 + (i % 3) * 25}px`,
-          ['--ty' as string]: `${-40 - (i % 4) * 15}px`,
-        }}
-      />
-    ))}
-  </div>
 );
 
 /* ─── data ─── */
@@ -53,17 +29,17 @@ const TG = "https://t.me/KARINA_ProZAPUSKI";
 const CH = "https://t.me/dengi_na_expertnosti";
 
 const tools = [
-  { icon: "sparkle", title: "Сканер суперсилы", desc: "AI найдёт уникальное позиционирование", badge: "AI", href: "/scanner" },
+  { icon: "sparkle", title: "Сканер суперсилы", desc: "AI найдёт уникальное позиционирование за 2 минуты", badge: "AI", href: "/scanner" },
   { icon: "target", title: "Аудит оффера", desc: "Оценка по 5 критериям + улучшенные варианты", badge: "AI", href: "/audit" },
   { icon: "calc", title: "Калькулятор запуска", desc: "Прогноз выручки за 60 секунд", badge: "New", href: "/calculator" },
   { icon: "clipboard", title: "Диагностика эксперта", desc: "20 вопросов — что мешает зарабатывать", badge: "Тест", href: "/diagnostic" },
-  { icon: "pen", title: "Контент-план 30 дней", desc: "План постов с заголовками и CTA", badge: "AI", href: "/content-plan" },
+  { icon: "pen", title: "Контент-план 30 дней", desc: "Готовый план постов с заголовками и CTA", badge: "AI", href: "/content-plan" },
 ];
 
 const stats = [
-  { value: "7+", label: "лет в онлайн-бизнесе" },
-  { value: "50+", label: "ниш — от эзотерики до IT" },
-  { value: "40М", label: "рублей / месяц рекорд" },
+  { value: "7+", label: "Лет в онлайн-бизнесе" },
+  { value: "50+", label: "Ниш — от эзотерики до IT" },
+  { value: "40М", label: "Рублей / месяц рекорд" },
 ];
 
 const results = [
@@ -106,50 +82,61 @@ export default function Home() {
 
   return (
     <>
+      {/* ════════ NAV ════════ */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FAF9F6]/90 backdrop-blur-md border-b border-[#E7E5E4]/60">
+        <div className="max-w-[1100px] mx-auto px-6 h-[64px] flex items-center justify-between">
+          <span className="font-display text-[18px] font-semibold text-[#1C1917] tracking-tight">Карина Мамедова</span>
+          <div className="hidden sm:flex items-center gap-8">
+            <a href="#tools" className="text-[14px] text-[#78716C] hover:text-[#1C1917] transition-colors font-medium">Инструменты</a>
+            <a href="#programs" className="text-[14px] text-[#78716C] hover:text-[#1C1917] transition-colors font-medium">Программы</a>
+            <a href="#results" className="text-[14px] text-[#78716C] hover:text-[#1C1917] transition-colors font-medium">Кейсы</a>
+            <a href={TG} target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 h-[40px] px-5 rounded-full bg-[#1C1917] text-[13px] font-semibold text-white transition-all hover:bg-[#2D2A26] hover:shadow-lg">
+              <TgIcon /> Написать
+            </a>
+          </div>
+        </div>
+      </nav>
+
       {/* ════════ HERO ════════ */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-        {/* bg glows */}
+      <section className="relative min-h-[100dvh] flex items-center justify-center pt-[64px] overflow-hidden">
+        {/* warm bg blobs */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[#C8A55A]/[0.04] blur-[120px]" />
-          <div className="absolute top-[30%] left-[30%] w-[400px] h-[400px] rounded-full bg-[#6B5B95]/[0.025] blur-[100px]" />
+          <div className="absolute top-[15%] right-[10%] w-[400px] h-[400px] rounded-full bg-[#F5EDD4]/60 blur-[100px]" />
+          <div className="absolute bottom-[20%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#E8DCC8]/40 blur-[80px]" />
         </div>
 
-        <Particles />
+        <div className="relative z-10 w-full max-w-[800px] mx-auto px-6 py-20 text-center animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F5EDD4] text-[#8B6914] text-[12px] font-semibold tracking-wide mb-8">
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" /></svg>
+            Продюсер · Маркетолог · Наставник
+          </div>
 
-        <div className="relative z-10 w-full max-w-[680px] mx-auto px-6 py-24 text-center animate-fade-up">
-          {/* eyebrow */}
-          <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-6">
-            Продюсер &middot; Маркетолог &middot; Наставник
-          </p>
-
-          {/* decorative line */}
-          <div className="w-[100px] h-px mx-auto mb-8 bg-gradient-to-r from-transparent via-[#C8A55A]/40 to-transparent" />
-
-          <h1 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] font-medium leading-[1.08] tracking-tight mb-6">
-            Карина{" "}
-            <span className="text-shimmer">Мамедова</span>
+          <h1 className="font-display text-[clamp(2.5rem,7vw,5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-[#1C1917] mb-6">
+            Помогаю экспертам<br />
+            <span className="text-shimmer">зарабатывать</span>
           </h1>
 
-          <p className="text-[clamp(1rem,2.2vw,1.2rem)] text-[#8A8A8A] leading-[1.7] max-w-[440px] mx-auto mb-12">
-            Помогаю экспертам превращать знания в&nbsp;деньги.
-            От&nbsp;самозапуска на&nbsp;<span className="text-[#F2F0ED] font-medium">300K</span>{" "}
-            до системного бизнеса на&nbsp;<span className="text-[#F2F0ED] font-medium">1+&nbsp;млн</span>
+          <p className="text-[clamp(1rem,2vw,1.2rem)] text-[#78716C] leading-[1.7] max-w-[520px] mx-auto mb-10">
+            От самозапуска на&nbsp;<span className="text-[#1C1917] font-semibold">300K</span>{" "}
+            до системного бизнеса на&nbsp;<span className="text-[#1C1917] font-semibold">1+ млн</span>.
+            Превращаю знания в стабильный доход.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-[380px] mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href={TG} target="_blank" rel="noopener noreferrer"
-              className="btn-sweep pulse-gold flex items-center justify-center gap-2.5 h-[54px] px-8 rounded-xl bg-[#C8A55A] text-[15px] font-semibold text-[#0A0A0A] transition-all duration-200 hover:bg-[#D9BA6E] hover:-translate-y-0.5">
+              className="btn-sweep flex items-center justify-center gap-2.5 h-[56px] px-8 rounded-full bg-[#1C1917] text-[15px] font-semibold text-white transition-all duration-200 hover:bg-[#2D2A26] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-0.5">
               <TgIcon />
               Написать Карине
             </a>
             <a href={CH} target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 h-[54px] px-8 rounded-xl border border-[#333] text-[15px] font-medium text-[#8A8A8A] transition-all duration-200 hover:border-[#555] hover:text-[#F2F0ED] hover:bg-white/[0.02]">
-              Канал
+              className="flex items-center justify-center gap-2 h-[56px] px-8 rounded-full border border-[#E7E5E4] text-[15px] font-medium text-[#78716C] bg-white transition-all duration-200 hover:border-[#D6D3D1] hover:text-[#1C1917] hover:shadow-sm">
+              Канал в Telegram
             </a>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator text-[#555]">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator text-[#D6D3D1]">
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
@@ -157,18 +144,13 @@ export default function Home() {
       </section>
 
       {/* ════════ STATS ════════ */}
-      <section className="relative py-20 md:py-24">
-        {/* subtle radial bg */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] rounded-full bg-[#C8A55A]/[0.02] blur-[80px]" />
-        </div>
-        <div className="relative z-10 max-w-[800px] mx-auto px-6 reveal">
-          <div className="grid grid-cols-3 gap-4 text-center">
+      <section className="py-16 md:py-20">
+        <div className="max-w-[900px] mx-auto px-6 reveal">
+          <div className="grid grid-cols-3 gap-4">
             {stats.map((s, i) => (
-              <div key={i} className="glass-card rounded-2xl py-6 px-4">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#C8A55A]/60 mx-auto mb-4" />
-                <div className="font-display text-[clamp(2rem,5vw,3.5rem)] font-medium text-[#C8A55A] leading-none mb-2">{s.value}</div>
-                <div className="text-[clamp(0.6rem,1.2vw,0.75rem)] uppercase tracking-[0.2em] text-[#555] font-medium">{s.label}</div>
+              <div key={i} className="card rounded-2xl py-8 px-4 text-center">
+                <div className="font-display text-[clamp(2rem,5vw,3.2rem)] font-semibold text-[#B8962E] leading-none mb-2">{s.value}</div>
+                <div className="text-[clamp(0.65rem,1.3vw,0.8rem)] text-[#A8A29E] font-medium tracking-wide">{s.label}</div>
               </div>
             ))}
           </div>
@@ -176,14 +158,16 @@ export default function Home() {
       </section>
 
       {/* ════════ AI TOOLS ════════ */}
-      <section className="py-24 md:py-32">
+      <section id="tools" className="py-20 md:py-28">
         <div className="max-w-[1000px] mx-auto px-6 md:px-12">
-          <div className="text-center reveal mb-16">
-            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">AI Инструменты</p>
-            <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-tight">
-              Бесплатная диагностика
+          <div className="text-center reveal mb-14">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F5EDD4] text-[#8B6914] text-[12px] font-semibold tracking-wide mb-5">
+              Бесплатно
+            </div>
+            <h2 className="font-display text-[clamp(1.75rem,4vw,2.8rem)] font-semibold leading-tight text-[#1C1917] tracking-[-0.02em]">
+              AI-инструменты для экспертов
             </h2>
-            <p className="text-[15px] text-[#666] mt-4 max-w-[400px] mx-auto">
+            <p className="text-[16px] text-[#78716C] mt-3 max-w-[420px] mx-auto">
               Получи персональный результат за 2 минуты
             </p>
           </div>
@@ -191,28 +175,26 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {tools.map((t, i) => (
               <Link key={i} href={t.href}
-                className={`reveal reveal-d${Math.min(i + 1, 5)} group glass-card glass-card-hover relative rounded-2xl p-6 md:p-7 overflow-hidden ${i === tools.length - 1 ? "md:col-span-2" : ""}`}>
+                className={`reveal reveal-d${Math.min(i + 1, 5)} group card card-hover rounded-2xl p-6 md:p-7 ${i === tools.length - 1 ? "md:col-span-2" : ""}`}>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 shrink-0 rounded-xl bg-[#C8A55A]/10 flex items-center justify-center text-[#C8A55A] transition-all duration-300 group-hover:bg-[#C8A55A]/15 group-hover:shadow-[0_0_20px_rgba(200,165,90,0.15)]">
+                  <div className="w-12 h-12 shrink-0 rounded-xl bg-[#F5EDD4] flex items-center justify-center text-[#B8962E] transition-all duration-300 group-hover:bg-[#B8962E] group-hover:text-white group-hover:shadow-[0_4px_16px_rgba(184,150,46,0.2)]">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d={toolIconPaths[t.icon]} />
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-[15px] font-semibold text-[#F2F0ED]">{t.title}</span>
-                      <span className="shrink-0 text-[9px] font-bold uppercase tracking-wider text-[#C8A55A] bg-[#C8A55A]/10 px-2 py-0.5 rounded">
+                      <span className="text-[15px] font-semibold text-[#1C1917]">{t.title}</span>
+                      <span className="shrink-0 text-[9px] font-bold uppercase tracking-wider text-[#B8962E] bg-[#F5EDD4] px-2 py-0.5 rounded-md">
                         {t.badge}
                       </span>
                     </div>
-                    <p className="text-[13px] text-[#666] leading-relaxed">{t.desc}</p>
+                    <p className="text-[14px] text-[#78716C] leading-relaxed">{t.desc}</p>
                   </div>
-                  <div className="shrink-0 mt-1 text-[#333] group-hover:text-[#C8A55A] transition-colors duration-300">
+                  <div className="shrink-0 mt-1 text-[#D6D3D1] group-hover:text-[#B8962E] transition-all duration-300 group-hover:translate-x-1">
                     <Arrow />
                   </div>
                 </div>
-                {/* hover progress line */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#C8A55A]/60 to-[#E8D48A]/40 transition-all duration-500 group-hover:w-full" />
               </Link>
             ))}
           </div>
@@ -220,50 +202,49 @@ export default function Home() {
       </section>
 
       {/* ════════ PROGRAMS ════════ */}
-      <section className="py-24 md:py-32 bg-[#080808]">
+      <section id="programs" className="py-20 md:py-28 bg-[#F5F0EB]">
         <div className="max-w-[1000px] mx-auto px-6 md:px-12">
-          <div className="text-center reveal mb-16">
-            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">Программы</p>
-            <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-tight">
+          <div className="text-center reveal mb-14">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#78716C] text-[12px] font-semibold tracking-wide mb-5 shadow-sm">
+              Программы
+            </div>
+            <h2 className="font-display text-[clamp(1.75rem,4vw,2.8rem)] font-semibold leading-tight text-[#1C1917] tracking-[-0.02em]">
               Работа с Кариной
             </h2>
           </div>
 
           {/* Featured card */}
-          <div className="reveal mb-8">
-            <div className="glass-card rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 80px rgba(200,165,90,0.06)' }}>
-              <div className="h-[3px] bg-gradient-to-r from-transparent via-[#C8A55A] to-transparent" />
+          <div className="reveal mb-6">
+            <div className="card-accent rounded-2xl overflow-hidden">
               <div className="p-8 md:p-10 lg:p-12">
                 <div className="lg:flex lg:gap-12">
-                  {/* Left */}
                   <div className="lg:flex-1">
-                    <span className="inline-block px-4 py-1.5 rounded-lg bg-[#C8A55A] text-[#0A0A0A] text-[10px] font-bold uppercase tracking-[0.15em] mb-8">
+                    <span className="inline-block px-4 py-1.5 rounded-full bg-[#B8962E] text-white text-[11px] font-bold uppercase tracking-[0.1em] mb-6">
                       Хит продаж
                     </span>
-                    <h3 className="font-display text-[clamp(1.5rem,3vw,2rem)] font-medium mb-2">Формула САМОзапуска</h3>
-                    <p className="text-[12px] uppercase tracking-[0.15em] text-[#555] font-medium mb-8">
-                      6 модулей &middot; 12 созвонов &middot; поддержка 1 мес.
+                    <h3 className="font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold text-[#1C1917] mb-2">Формула САМОзапуска</h3>
+                    <p className="text-[12px] uppercase tracking-[0.15em] text-[#A8A29E] font-medium mb-8">
+                      6 модулей · 12 созвонов · поддержка 1 мес.
                     </p>
-                    <ul className="space-y-3.5 mb-8 lg:mb-0">
+                    <ul className="space-y-3 mb-8 lg:mb-0">
                       {["Стратегия запуска под ключ", "Оффер, контент-план, воронка", "Мастермайнд-группа и куратор", "Шаблоны, чек-листы, скрипты", "Результат: от 300 000 ₽ за 6 недель"].map((f, i) => (
-                        <li key={i} className="flex items-center gap-3 text-[14px] md:text-[15px] text-[#999]">
-                          <Check gold /> {f}
+                        <li key={i} className="flex items-center gap-3 text-[15px] text-[#57534E]">
+                          <Check accent /> {f}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  {/* Right */}
-                  <div className="lg:w-[280px] lg:shrink-0 lg:flex lg:flex-col lg:justify-end pt-8 lg:pt-0 border-t lg:border-t-0 lg:border-l border-white/[0.06] lg:pl-12">
-                    <div className="text-[11px] uppercase tracking-[0.2em] text-[#555] font-semibold mb-2">Стоимость</div>
-                    <div className="font-display text-[clamp(2rem,4vw,2.75rem)] font-medium text-shimmer leading-none mb-8">
+                  <div className="lg:w-[280px] lg:shrink-0 lg:flex lg:flex-col lg:justify-end pt-8 lg:pt-0 border-t lg:border-t-0 lg:border-l border-[#E7E5E4] lg:pl-12">
+                    <div className="text-[11px] uppercase tracking-[0.2em] text-[#A8A29E] font-semibold mb-2">Стоимость</div>
+                    <div className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold text-shimmer leading-none mb-8">
                       150 000 ₽
                     </div>
                     <a href={TG + "?text=%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA"} target="_blank" rel="noopener noreferrer"
-                      className="btn-sweep flex items-center justify-center gap-2.5 w-full h-[52px] rounded-xl bg-[#C8A55A] text-[14px] font-semibold text-[#0A0A0A] transition-all duration-200 hover:bg-[#D9BA6E] shadow-[0_4px_24px_rgba(200,165,90,0.25)]">
+                      className="btn-sweep flex items-center justify-center gap-2.5 w-full h-[52px] rounded-full bg-[#1C1917] text-[14px] font-semibold text-white transition-all duration-200 hover:bg-[#2D2A26] hover:shadow-lg">
                       <TgIcon />
                       Узнать подробнее
                     </a>
-                    <p className="text-[11px] text-[#444] mt-4 text-center">30+ экспертов уже запустились</p>
+                    <p className="text-[12px] text-[#A8A29E] mt-3 text-center">30+ экспертов уже запустились</p>
                   </div>
                 </div>
               </div>
@@ -288,21 +269,19 @@ export default function Home() {
                 link: TG + "?text=%D0%9D%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE",
               },
             ].map((p, i) => (
-              <div key={i} className={`reveal reveal-d${i + 1} group glass-card glass-card-hover rounded-2xl p-7 md:p-8 relative overflow-hidden`}>
-                {/* hover left accent */}
-                <div className="absolute left-0 top-0 w-[3px] h-0 bg-gradient-to-b from-[#C8A55A] to-[#A68B3C] transition-all duration-500 group-hover:h-full rounded-l-2xl" />
-                <h3 className="font-display text-[clamp(1.1rem,2vw,1.35rem)] font-medium mb-1.5">{p.title}</h3>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-[#555] font-medium mb-6">{p.sub}</p>
+              <div key={i} className={`reveal reveal-d${i + 1} group card card-hover rounded-2xl p-7 md:p-8`}>
+                <h3 className="font-display text-[clamp(1.1rem,2vw,1.35rem)] font-semibold text-[#1C1917] mb-1.5">{p.title}</h3>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-[#A8A29E] font-medium mb-6">{p.sub}</p>
                 <ul className="space-y-2.5 mb-7">
                   {p.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2.5 text-[13px] text-[#777]"><Check /> {f}</li>
+                    <li key={j} className="flex items-center gap-2.5 text-[14px] text-[#78716C]"><Check /> {f}</li>
                   ))}
                 </ul>
-                <div className="pt-6 border-t border-white/[0.06]">
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-[#444] font-semibold mb-1.5">Стоимость</div>
-                  <div className="font-display text-[24px] font-medium text-shimmer leading-none mb-5">{p.price}</div>
+                <div className="pt-6 border-t border-[#E7E5E4]">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-[#A8A29E] font-semibold mb-1.5">Стоимость</div>
+                  <div className="font-display text-[24px] font-semibold text-[#B8962E] leading-none mb-5">{p.price}</div>
                   <a href={p.link} target="_blank" rel="noopener noreferrer"
-                    className="btn-sweep flex items-center justify-center gap-2 w-full h-[46px] rounded-xl border border-[#C8A55A]/20 text-[13px] font-semibold text-[#C8A55A]/80 transition-all duration-200 hover:bg-[#C8A55A]/10 hover:border-[#C8A55A]/40 hover:text-[#C8A55A]">
+                    className="flex items-center justify-center gap-2 w-full h-[46px] rounded-full border border-[#E7E5E4] text-[13px] font-semibold text-[#78716C] transition-all duration-200 hover:border-[#B8962E] hover:text-[#B8962E] hover:bg-[#F5EDD4]/30">
                     Подробнее <Arrow />
                   </a>
                 </div>
@@ -313,25 +292,23 @@ export default function Home() {
       </section>
 
       {/* ════════ RESULTS ════════ */}
-      <section className="py-24 md:py-32">
+      <section id="results" className="py-20 md:py-28">
         <div className="max-w-[1000px] mx-auto px-6 md:px-12">
-          <div className="text-center reveal mb-16">
-            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">Кейсы</p>
-            <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-tight">
+          <div className="text-center reveal mb-14">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F5EDD4] text-[#8B6914] text-[12px] font-semibold tracking-wide mb-5">
+              Кейсы
+            </div>
+            <h2 className="font-display text-[clamp(1.75rem,4vw,2.8rem)] font-semibold leading-tight text-[#1C1917] tracking-[-0.02em]">
               Результаты учеников
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {results.map((r, i) => (
-              <div key={i} className={`reveal reveal-d${Math.min(i + 1, 5)} group glass-card glass-card-hover rounded-2xl overflow-hidden ${i === 0 ? "lg:col-span-2 lg:row-span-1" : ""}`}>
-                {/* gold top accent */}
-                <div className="h-[3px] bg-gradient-to-r from-[#C8A55A]/40 via-[#C8A55A]/60 to-[#C8A55A]/40" />
-                <div className="p-6 md:p-7">
-                  <div className="font-display text-[clamp(1.3rem,2.5vw,1.65rem)] font-medium text-[#C8A55A] leading-none mb-1.5">{r.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.15em] text-[#555] font-medium mb-3">{r.sub}</div>
-                  <div className="text-[13px] text-[#777] leading-relaxed">{r.d}</div>
-                </div>
+              <div key={i} className={`reveal reveal-d${Math.min(i + 1, 5)} card rounded-2xl p-6 md:p-7 ${i === 0 ? "lg:col-span-2" : ""}`}>
+                <div className="font-display text-[clamp(1.4rem,2.5vw,1.75rem)] font-semibold text-[#B8962E] leading-none mb-2">{r.n}</div>
+                <div className="text-[11px] uppercase tracking-[0.15em] text-[#A8A29E] font-medium mb-3">{r.sub}</div>
+                <div className="text-[14px] text-[#78716C] leading-relaxed">{r.d}</div>
               </div>
             ))}
           </div>
@@ -339,22 +316,21 @@ export default function Home() {
       </section>
 
       {/* ════════ MATERIALS ════════ */}
-      <section className="py-20 md:py-24 bg-[#080808]">
+      <section className="py-16 md:py-24 bg-[#F5F0EB]">
         <div className="max-w-[720px] mx-auto px-6 md:px-12">
           <div className="text-center reveal mb-12">
-            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">Бесплатно</p>
-            <h2 className="font-display text-[clamp(1.5rem,3vw,2.25rem)] font-medium">Материалы</h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#78716C] text-[12px] font-semibold tracking-wide mb-5 shadow-sm">
+              Бесплатно
+            </div>
+            <h2 className="font-display text-[clamp(1.5rem,3vw,2.25rem)] font-semibold text-[#1C1917]">Материалы</h2>
           </div>
-          <div className="space-y-2 reveal">
+          <div className="space-y-3 reveal">
             {materials.map((m, i) => (
               <a key={i} href={TG + "?text=" + encodeURIComponent(m.k)} target="_blank" rel="noopener noreferrer"
-                className="group relative flex items-center gap-4 glass-card glass-card-hover rounded-xl px-5 py-4 overflow-hidden">
-                {/* hover left bar */}
-                <div className="absolute left-0 top-0 w-[3px] h-0 bg-[#C8A55A] transition-all duration-300 group-hover:h-full rounded-l-xl" />
-                {/* number */}
-                <span className="text-[11px] font-mono text-[#333] shrink-0 w-5">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-[14px] text-[#777] group-hover:text-[#F2F0ED] transition-colors flex-1">{m.t}</span>
-                <span className="shrink-0 ml-3 text-[#C8A55A] opacity-40 group-hover:opacity-100 transition-all translate-x-1 group-hover:translate-x-0">
+                className="group flex items-center gap-4 card card-hover rounded-xl px-5 py-4">
+                <span className="text-[12px] font-mono text-[#D6D3D1] shrink-0 w-5 font-semibold">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-[14px] text-[#57534E] group-hover:text-[#1C1917] transition-colors flex-1 font-medium">{m.t}</span>
+                <span className="shrink-0 ml-3 text-[#D6D3D1] group-hover:text-[#B8962E] transition-all group-hover:translate-x-1">
                   <Arrow />
                 </span>
               </a>
@@ -364,21 +340,22 @@ export default function Home() {
       </section>
 
       {/* ════════ ABOUT ════════ */}
-      <section className="py-24 md:py-32">
+      <section className="py-20 md:py-28">
         <div className="max-w-[720px] mx-auto px-6 md:px-12 reveal">
-          <div className="text-center mb-12">
-            <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-4">О себе</p>
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F5EDD4] text-[#8B6914] text-[12px] font-semibold tracking-wide mb-5">
+              О себе
+            </div>
           </div>
-          <div className="border-gold-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
-            {/* decorative quote */}
-            <div className="absolute top-4 left-6 font-display text-[80px] leading-none text-[#C8A55A]/[0.07] select-none pointer-events-none">&ldquo;</div>
-            <div className="relative space-y-5 text-[15px] md:text-[16px] text-[#888] leading-[1.8]">
+          <div className="card-accent rounded-2xl p-8 md:p-10 relative">
+            <div className="absolute top-6 left-8 font-display text-[72px] leading-none text-[#B8962E]/10 select-none pointer-events-none">&ldquo;</div>
+            <div className="relative space-y-5 text-[16px] text-[#57534E] leading-[1.8]">
               <p>
-                <span className="text-[#F2F0ED] font-semibold">7 лет</span> в онлайн-бизнесе.
-                Рекорд — <span className="text-[#F2F0ED] font-semibold">40 млн руб./мес</span> на 3 автоворонках.
+                <span className="text-[#1C1917] font-semibold">7 лет</span> в онлайн-бизнесе.
+                Рекорд — <span className="text-[#1C1917] font-semibold">40 млн руб./мес</span> на 3 автоворонках.
               </p>
               <p>
-                Живу в Стамбуле. Продавала в <span className="text-[#F2F0ED] font-semibold">50+ нишах</span> —
+                Живу в Стамбуле. Продавала в <span className="text-[#1C1917] font-semibold">50+ нишах</span> —
                 от эзотерики до обучения профессиям.
               </p>
               <p>
@@ -390,44 +367,37 @@ export default function Home() {
       </section>
 
       {/* ════════ FINAL CTA ════════ */}
-      <section className="relative py-28 md:py-36 overflow-hidden">
+      <section className="relative py-24 md:py-32 bg-[#1C1917] overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#C8A55A]/[0.04] blur-[120px]" />
-          <div className="absolute top-[40%] left-[60%] w-[300px] h-[300px] rounded-full bg-[#6B5B95]/[0.02] blur-[90px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#B8962E]/[0.06] blur-[120px]" />
         </div>
 
-        <Particles />
-
         <div className="relative z-10 max-w-[600px] mx-auto px-6 text-center reveal">
-          <p className="text-[11px] uppercase tracking-[0.35em] text-[#C8A55A]/70 font-medium mb-6">Следующий шаг</p>
-
-          <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-medium mb-5 leading-tight">
+          <h2 className="font-display text-[clamp(1.75rem,4vw,2.8rem)] font-semibold mb-5 leading-tight text-white tracking-[-0.02em]">
             Готов зарабатывать<br />на&nbsp;экспертности?
           </h2>
-          <p className="text-[15px] md:text-[16px] text-[#666] mb-12 max-w-[380px] mx-auto leading-relaxed">
-            Напиши &laquo;Разбор&raquo; — покажу, как выйти на&nbsp;300&nbsp;000&nbsp;₽ за&nbsp;6&nbsp;недель
+          <p className="text-[16px] text-white/50 mb-10 max-w-[400px] mx-auto leading-relaxed">
+            Напиши «Разбор» — покажу, как выйти на&nbsp;300&nbsp;000&nbsp;₽ за&nbsp;6&nbsp;недель
           </p>
 
           <a href={TG + "?text=%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80"} target="_blank" rel="noopener noreferrer"
-            className="btn-sweep pulse-gold inline-flex items-center gap-3 h-[58px] px-12 rounded-xl bg-[#C8A55A] text-[16px] font-semibold text-[#0A0A0A] transition-all duration-200 hover:bg-[#D9BA6E] hover:-translate-y-0.5">
+            className="btn-sweep inline-flex items-center gap-3 h-[58px] px-12 rounded-full bg-white text-[16px] font-semibold text-[#1C1917] transition-all duration-200 hover:bg-[#F5EDD4] hover:shadow-[0_8px_30px_rgba(255,255,255,0.15)] hover:-translate-y-0.5">
             <TgIcon />
-            Написать &laquo;Разбор&raquo;
+            Написать «Разбор»
           </a>
-          <p className="text-[12px] text-[#444] mt-5">Бесплатная консультация, без обязательств</p>
+          <p className="text-[13px] text-white/30 mt-5">Бесплатная консультация, без обязательств</p>
         </div>
       </section>
 
       {/* ════════ FOOTER ════════ */}
-      <footer className="py-10">
-        {/* gradient line */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C8A55A]/20 to-transparent mb-10" />
+      <footer className="py-10 bg-[#1C1917]">
         <div className="max-w-[1000px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="font-display text-[14px] text-[#333] font-medium tracking-tight">Карина Мамедова</span>
+          <span className="font-display text-[15px] text-white/40 font-medium tracking-tight">Карина Мамедова</span>
           <div className="flex gap-8">
-            <a href={CH} target="_blank" rel="noopener noreferrer" className="text-[12px] text-[#444] hover:text-[#C8A55A] transition-colors">Канал</a>
-            <a href={TG} target="_blank" rel="noopener noreferrer" className="text-[12px] text-[#444] hover:text-[#C8A55A] transition-colors">Написать</a>
+            <a href={CH} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-white/70 transition-colors">Канал</a>
+            <a href={TG} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-white/70 transition-colors">Написать</a>
           </div>
-          <p className="text-[11px] text-[#333]">&copy; {new Date().getFullYear()}</p>
+          <p className="text-[12px] text-white/20">&copy; {new Date().getFullYear()}</p>
         </div>
       </footer>
     </>

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const manrope = Manrope({
+  variable: "--font-sans",
   subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const playfair = Playfair_Display({
@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${inter.variable} ${playfair.variable} font-[family-name:var(--font-inter)] antialiased`}>{children}</body>
+      <body className={`${manrope.variable} ${playfair.variable} font-[family-name:var(--font-sans)] antialiased`}>{children}</body>
     </html>
   );
 }
